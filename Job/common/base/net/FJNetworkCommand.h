@@ -16,15 +16,18 @@ typedef enum REQUEST_TYPE{
     DELETE =3
 }REQUEST_TYPE;
 typedef void (^SUCCESS_BLOCK)(id data);
-typedef void (^FAILURE_BLOCK)(NSError* error);
+typedef void (^FAILURE_BLOCK)(NSString* msg);
+@property (nonatomic,copy) NSString *networkUrl;
 @property (nonatomic,copy) FAILURE_BLOCK errorBlock;
 @property (nonatomic,copy) SUCCESS_BLOCK successBlock;
 
 -(AFHTTPSessionManager*)networkEngine;
 
+-(void)execute;
+
 - (void)successHandle:(id)data;
 
-- (void)errorHandle:(NSError *)error;
+- (void)errorHandle:(NSString*)msg;
 
 -(void)sendRequestWithUrl:(NSString *)url method:(REQUEST_TYPE)requestType;
 

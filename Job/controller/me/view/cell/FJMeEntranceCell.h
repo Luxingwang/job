@@ -9,5 +9,5 @@
 #import "FJBaseTableViewCell.h"
 
 @interface FJMeEntranceCell : FJBaseTableViewCell
-
+@property (nonatomic,strong) NSDictionary *infoDictionary;
 @end

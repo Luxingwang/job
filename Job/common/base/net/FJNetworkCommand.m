@@ -13,14 +13,14 @@
     static AFHTTPSessionManager *networkEngine = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
-        networkEngine = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+        networkEngine = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"https://api.windwalker.club"] sessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
         [self setUpEngine:networkEngine];
     });
     return networkEngine;
 }
 
 -(void)setUpEngine:(AFHTTPSessionManager*)mannger{
-    NSString *cerPath = [[NSBundle mainBundle] pathForResource:@"yoga" ofType:@"cer"];
+    NSString *cerPath = [[NSBundle mainBundle] pathForResource:@"fj" ofType:@"cer"];
     NSData *certData = [NSData dataWithContentsOfFile:cerPath];
     AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
     securityPolicy.allowInvalidCertificates = YES;
@@ -30,6 +30,8 @@
     mannger.requestSerializer=[AFJSONRequestSerializer serializer];
     mannger.responseSerializer = [AFJSONResponseSerializer serializer];
     ((AFJSONResponseSerializer*)(mannger.responseSerializer)).removesKeysWithNullValues = YES;
+    [mannger.requestSerializer setValue:@"ios" forHTTPHeaderField:@"os"];
+    [mannger.requestSerializer setValue:@"1.0.1" forHTTPHeaderField:@"version"];
 }
 
 -(void)sendRequestWithUrl:(NSString *)url method:(REQUEST_TYPE)requestType{
@@ -50,17 +52,40 @@
     request.timeoutInterval = 10;
     NSURLSessionDataTask *dataTask = [[self networkEngine] dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error){
         if (error){
-            [self errorHandle:error];
+            [self errorHandle:error.localizedDescription];
         } else{
-            [self successHandle:responseObject];
+            [self handleResponse:responseObject];
         }
     }];
     [dataTask resume];
 }
 
--(void)errorHandle:(NSError *)error{
+-(void)handleResponse:(id)response
+{
+    if ([response isKindOfClass:[NSDictionary class]]==NO)
+    {
+        [self errorHandle:@"数据格式有误"];
+    }else
+    {
+        BOOL success = [[response objectForKey:@"success"] boolValue];
+        if (success==NO) {
+            NSString *msg = [response objectForKey:@"msg"];
+            if (msg){
+                [self errorHandle:msg];
+            }
+            else{
+                [self errorHandle:@"未知错误"];
+            }
+        }else{
+            id result = [response objectForKey:@"result"];
+            [self successHandle:result];
+        }
+    }
+}
+
+- (void)errorHandle:(NSString*)msg{
     if (self.errorBlock) {
-        self.errorBlock(error);
+        self.errorBlock(msg);
     }
 }
 

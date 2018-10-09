@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface FJBaseController : UIViewController
-
-
+- (void)setUpSubviews;
+- (void)initConstraints;
 @end
 

@@ -7,7 +7,11 @@
 //
 
 #import "FJBaseTableViewCell.h"
-
+@protocol FJMeInfoCellDelegate<NSObject>
+-(void)didSelectMeDeliveredAtCell:(FJBaseTableViewCell*)cell;
+-(void)didSelectMeTalkededAtCell:(FJBaseTableViewCell*)cell;
+-(void)didSelectMeInterviewedAtCell:(FJBaseTableViewCell*)cell;
+@end
 @interface FJMeInfoCell : FJBaseTableViewCell
-
+@property (nonatomic,weak) id<FJMeInfoCellDelegate> delegate;
 @end
