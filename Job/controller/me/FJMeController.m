@@ -7,11 +7,18 @@
 //
 #import <Masonry.h>
 #import "FJMeInfoCell.h"
-#import "FJMeEntranceCell.h"
 #import "FJMeController.h"
-
-@interface FJMeController ()<UITableViewDelegate,UITableViewDataSource>
+#import "FJMeEntranceCell.h"
+#import "FJSettingController.h"
+#import "FJTalkedController.h"
+#import "FJExchangeController.h"
+#import "FJDeliveredControler.h"
+#import "FJCollectedController.h"
+#import "FJAttachmentController.h"
+#import "FJInterviewedController.h"
+@interface FJMeController ()<UITableViewDelegate,UITableViewDataSource,FJMeInfoCellDelegate>
 @property (nonatomic,strong) UITableView *tableView;
+@property (nonatomic,strong) NSArray *entranceInfoList;
 @end
 
 @implementation FJMeController
@@ -24,6 +31,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -41,19 +49,21 @@
 
 #pragma mark
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return section==0?1:4;
+    return section<2?1:3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
         FJMeInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:[FJMeInfoCell cellId] forIndexPath:indexPath];
+        cell.delegate = self;
         return cell;
     }
     FJMeEntranceCell *cell = [tableView dequeueReusableCellWithIdentifier:[FJMeEntranceCell cellId] forIndexPath:indexPath];
+    cell.infoDictionary = indexPath.section==1?self.entranceInfoList[0]:self.entranceInfoList[indexPath.row+1];
     return cell;
 }
 
@@ -64,18 +74,78 @@
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     return [[UIView alloc]init];
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section==1)
+    {
+        FJAttachmentController *controller = [[FJAttachmentController alloc] init];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+    else if (indexPath.section==2)
+    {
+        if (indexPath.row==0)
+        {
+            FJExchangeController *controller = [[FJExchangeController alloc] init];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+        else if (indexPath.row==1)
+        {
+            FJCollectedController *controller = [[FJCollectedController alloc] init];
+            [self.navigationController pushViewController:controller animated:YES];
+        }else if (indexPath.row==2)
+        {
+            FJSettingController *controller = [[FJSettingController alloc] init];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+    }
+}
+
+#pragma mark
+-(void)didSelectMeDeliveredAtCell:(FJBaseTableViewCell*)cell{
+    FJDeliveredControler *controller = [[FJDeliveredControler alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+-(void)didSelectMeTalkededAtCell:(FJBaseTableViewCell*)cell{
+    FJTalkedController *controller = [[FJTalkedController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+-(void)didSelectMeInterviewedAtCell:(FJBaseTableViewCell*)cell{
+    FJInterviewedController *controller = [[FJInterviewedController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
 #pragma mark
 -(UITableView*)tableView{
     if (!_tableView) {
         _tableView = [[UITableView alloc] init];
-        _tableView.tableFooterView = [UIView new];
-        _tableView.backgroundColor = [UIColor redColor];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.sectionFooterHeight = 10;
+        _tableView.tableFooterView = [UIView new];
+        _tableView.backgroundColor = [UIColor clearColor];
         [_tableView registerClass:[FJMeInfoCell class] forCellReuseIdentifier:[FJMeInfoCell cellId]];
         [_tableView registerClass:[FJMeEntranceCell class] forCellReuseIdentifier:[FJMeEntranceCell cellId]];
     }
     return _tableView;
 }
+-(NSArray*)entranceInfoList{
+    if (!_entranceInfoList) {
+        _entranceInfoList = @[@{@"title":@"附件简历",
+                                @"imgName":@"img_me_attachment"
+                                },
+                              @{@"title":@"匿名/实名交流",
+                                @"imgName":@"img_me_talk"
+                                },
+                              @{@"title":@"收藏",
+                                @"imgName":@"img_me_collection"
+                                },
+                              @{@"title":@"设置",
+                                @"imgName":@"img_me_setting"
+                                }];
+    }
+    return _entranceInfoList;
+}
+
 @end

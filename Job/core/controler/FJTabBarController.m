@@ -21,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpControllers];
+    self.tabBar.translucent = NO;
+    [self.tabBar setBarTintColor:[UIColor whiteColor]];
 }
 
 - (void)didReceiveMemoryWarning {

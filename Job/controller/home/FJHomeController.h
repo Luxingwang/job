@@ -6,8 +6,8 @@
 //  Copyright © 2018年 lxw. All rights reserved.
 //
 
-#import "FJBaseController.h"
+#import "FJBaseHomeController.h"
 
-@interface FJHomeController : FJBaseController
+@interface FJHomeController : FJBaseHomeController
 
 @end

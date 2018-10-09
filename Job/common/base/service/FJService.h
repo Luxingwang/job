@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "FJHomeService.h"
+#import "FJUserService.h"
+#import "FJNetworkService.h"
+#import "FJUserLocalUserService.h"
 @interface FJService : NSObject
-
+@property (nonatomic,weak) FJHomeService *homeService;
+@property (nonatomic,weak) FJUserService *userService;
+@property (nonatomic,weak) FJNetworkService *networkService;
+@property (nonatomic,weak) FJUserLocalUserService *userLocalService;
++(FJService*)instance;
 @end

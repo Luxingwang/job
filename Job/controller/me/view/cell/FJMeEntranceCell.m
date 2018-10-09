@@ -28,7 +28,7 @@
     self.layoutMargins = UIEdgeInsetsZero;
     self.separatorInset = UIEdgeInsetsZero;
     self.backgroundColor = [UIColor whiteColor];
-    self.selectionStyle = UITableViewCellSelectionStyleDefault;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 -(void)setUpSubviews{
@@ -36,10 +36,6 @@
     [self addSubview:self.titleLabel];
     [self addSubview:self.subtitleLabel];
     [self addSubview:self.arrowImgv];
-    self.iconImgv.backgroundColor = [UIColor redColor];
-    self.titleLabel.backgroundColor = [UIColor greenColor];
-    self.subtitleLabel.backgroundColor = [UIColor yellowColor];
-    self.arrowImgv.backgroundColor = [UIColor purpleColor];
 }
 
 -(void)initConstraints{
@@ -50,7 +46,7 @@
     }];
     [self.arrowImgv mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(-20);
-        make.size.mas_equalTo(CGSizeMake(6,11));
+        make.size.mas_equalTo(self.arrowImgv.frame.size);
         make.centerY.mas_equalTo(self.mas_centerY);
     }];
     [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -59,12 +55,20 @@
         make.width.mas_equalTo(100);
     }];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.iconImgv.mas_left).offset(20);
+        make.left.mas_equalTo(self.iconImgv.mas_right).offset(17);
         make.top.bottom.mas_equalTo(0);
         make.right.mas_equalTo(self.subtitleLabel.mas_left);
     }];
-    
 }
+#pragma mark
+-(void)setInfoDictionary:(NSDictionary *)infoDictionary{
+    if (infoDictionary!=_infoDictionary) {
+        _infoDictionary = infoDictionary;
+        _titleLabel.text = infoDictionary[@"title"];
+        _iconImgv.image = [UIImage imageNamed:infoDictionary[@"imgName"]];
+    }
+}
+
 #pragma mark
 -(UILabel*)titleLabel{
     if (!_titleLabel) {
@@ -89,7 +93,7 @@
 
 -(UIImageView*)arrowImgv{
     if (!_arrowImgv) {
-        _arrowImgv = [[UIImageView alloc] init];
+        _arrowImgv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"img_arrow"]];
     }
     return _arrowImgv;
 }
