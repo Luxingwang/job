@@ -18,6 +18,16 @@
     return service;
 }
 
+-(FJJobService*)jobService
+{
+    return [FJJobService instance];
+}
+
+-(FJJobListService*)jobListService
+{
+    return [FJJobListService instance];
+}
+
 -(FJHomeService*)homeService
 {
     return [FJHomeService instance];

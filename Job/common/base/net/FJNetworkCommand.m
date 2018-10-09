@@ -48,7 +48,9 @@
         requestMethod = @"DELETE";
     }
     NSString *encodingURLString=[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSMutableURLRequest * request=[[self networkEngine].requestSerializer requestWithMethod:requestMethod URLString:encodingURLString parameters:params error:nil];
+    NSMutableURLRequest * request=[[self networkEngine].requestSerializer multipartFormRequestWithMethod:requestMethod URLString:encodingURLString parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+    } error:nil];
     request.timeoutInterval = 10;
     NSURLSessionDataTask *dataTask = [[self networkEngine] dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error){
         if (error){

@@ -1,29 +1,30 @@
 //
-//  FJStoryListController.m
+//  FJInfomationListController.m
 //  Job
 //
-//  Created by 小黑胖 on 2018/10/8.
+//  Created by 小黑胖 on 2018/10/9.
 //  Copyright © 2018年 lxw. All rights reserved.
 //
+
 #import <Masonry.h>
 #import "FJService.h"
 #import "UIView+Extension.h"
-#import "FJBinJiangStoryCell.h"
-#import "FJStoryListController.h"
-#import "FJStoryDetailController.h"
-@interface FJStoryListController ()<UITableViewDelegate,UITableViewDataSource>
+#import "FJInfomationListCell.h"
+#import "FJInfomationListController.h"
+#import "FJInfomationDetailController.h"
+@interface FJInfomationListController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableView;
-@property (nonatomic,strong) NSMutableArray *storyList;
+@property (nonatomic,strong) NSMutableArray *infoLiteList;
 @end
 
-@implementation FJStoryListController
+@implementation FJInfomationListController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpSubviews];
     [self initConstraints];
     [self fetchStoryList];
-    self.navigationItem.title = @"滨江故事";
+    self.navigationItem.title = self.listType==InfomationListTypeStory?@"滨江故事":@"企业动态";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,10 +42,10 @@
 #pragma mark
 -(void)fetchStoryList{
     [self.view at_postLoading];
-    [[FJService instance].homeService fetchBinJiangStoryListSuccessBlock:^(NSMutableArray *storyList) {
+    [[FJService instance].homeService fetchInfomationListAtpage:0 listType:self.listType successBlock:^(NSArray* infoLiteList) {
         [self.view at_hideLoading];
-        if (storyList.count) {
-            [self.storyList addObjectsFromArray:storyList];
+        if (infoLiteList.count) {
+            [self.infoLiteList addObjectsFromArray:infoLiteList];
             [self.tableView reloadData];
         }
     } failureBlock:^(NSString *msg) {
@@ -54,13 +55,13 @@
 #pragma mark
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.storyList.count;
+    return self.infoLiteList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FJBinJiangStoryCell *cell = [tableView dequeueReusableCellWithIdentifier:[FJBinJiangStoryCell cellId] forIndexPath:indexPath];
-    cell.story = self.storyList[indexPath.row];
+    FJInfomationListCell *cell = [tableView dequeueReusableCellWithIdentifier:[FJInfomationListCell cellId] forIndexPath:indexPath];
+    cell.infomationLite = self.infoLiteList[indexPath.row];
     return cell;
 }
 
@@ -72,17 +73,17 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FJBinJiangStory *story = self.storyList[indexPath.row];
-    FJStoryDetailController *controller = [[FJStoryDetailController alloc] init];
-    controller.storyId = story.storyId;
+    FJInfomationLite *infoLite = self.infoLiteList[indexPath.row];
+    FJInfomationDetailController *controller = [[FJInfomationDetailController alloc] init];
+    controller.infoId = infoLite.infoId;
     [self.navigationController pushViewController:controller animated:YES];
 }
 #pragma mark
--(NSMutableArray*)storyList{
-    if (!_storyList) {
-        _storyList = [NSMutableArray array];
+-(NSMutableArray*)infoLiteList{
+    if (!_infoLiteList) {
+        _infoLiteList = [NSMutableArray array];
     }
-    return _storyList;
+    return _infoLiteList;
 }
 -(UITableView*)tableView{
     if (!_tableView) {
@@ -91,8 +92,9 @@
         _tableView.dataSource = self;
         _tableView.tableFooterView = [UIView new];
         _tableView.backgroundColor = [UIColor whiteColor];
-        [_tableView registerClass:[FJBinJiangStoryCell class] forCellReuseIdentifier:[FJBinJiangStoryCell cellId]];
+        [_tableView registerClass:[FJInfomationListCell class] forCellReuseIdentifier:[FJInfomationListCell cellId]];
     }
     return _tableView;
 }
+
 @end

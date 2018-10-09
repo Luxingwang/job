@@ -1,19 +1,20 @@
 //
-//  FJBinJiangStoryCell.m
+//  FJInfomationCell.m
 //  Job
 //
-//  Created by 小黑胖 on 2018/10/8.
+//  Created by 小黑胖 on 2018/10/9.
 //  Copyright © 2018年 lxw. All rights reserved.
 //
+
 #import <Masonry.h>
 #import "UIColor+Extension.h"
-#import "FJBinJiangStoryCell.h"
+#import "FJInfomationListCell.h"
 #import "UIImageView+WebCache.h"
-@interface FJBinJiangStoryCell ()
+@interface FJInfomationListCell ()
 @property (nonatomic,strong) UILabel *contentLabel;
 @property (nonatomic,strong) UIImageView *coverImgv;
 @end
-@implementation FJBinJiangStoryCell
+@implementation FJInfomationListCell
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -52,12 +53,12 @@
     }];
 }
 #pragma mark
--(void)setStory:(FJBinJiangStory *)story
+-(void)setInfomationLite:(FJInfomationLite *)infomationLite
 {
-    if (story!=_story) {
-        _story = story;
-        _contentLabel.text = story.title;
-        [self.coverImgv sd_setImageWithURL:[NSURL URLWithString:story.titleImgs]];
+    if (infomationLite!=_infomationLite) {
+        _infomationLite = infomationLite;
+        _contentLabel.text = infomationLite.title;
+        [self.coverImgv sd_setImageWithURL:[NSURL URLWithString:infomationLite.titleImgs]];
     }
 }
 

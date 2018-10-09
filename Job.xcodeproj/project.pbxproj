@@ -55,6 +55,14 @@
 		2A578C78215E16570041F225 /* FJUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A578C77215E16570041F225 /* FJUserService.m */; };
 		2A578C7B215E166D0041F225 /* FJUserLocalUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A578C7A215E166D0041F225 /* FJUserLocalUserService.m */; };
 		2A578C82215E19A10041F225 /* FJNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A578C81215E19A10041F225 /* FJNetworkService.m */; };
+		2ABB5692216CF6EF00931792 /* FJInfomationListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB5691216CF6EF00931792 /* FJInfomationListCell.m */; };
+		2ABB5695216CF77C00931792 /* FJInfomationLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB5694216CF77C00931792 /* FJInfomationLite.m */; };
+		2ABB5699216CF86200931792 /* FJInfomationListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB5698216CF86200931792 /* FJInfomationListController.m */; };
+		2ABB569C216CF96300931792 /* FJInfomationListCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB569B216CF96300931792 /* FJInfomationListCommand.m */; };
+		2ABB56A1216CFE0F00931792 /* FJInfomationDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB56A0216CFE0F00931792 /* FJInfomationDetailController.m */; };
+		2ABB56AA216D100200931792 /* FJJobListCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB56A9216D100200931792 /* FJJobListCommand.m */; };
+		2ABB56AD216D103500931792 /* FJJobListService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB56AC216D103500931792 /* FJJobListService.m */; };
+		2ABB56B0216D104300931792 /* FJJobService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB56AF216D104300931792 /* FJJobService.m */; };
 		2ACC8F952141020100E61C59 /* FJBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC8F942141020100E61C59 /* FJBaseObject.m */; };
 		2ACC8F982141033500E61C59 /* FJBaseCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC8F972141033500E61C59 /* FJBaseCollectionCell.m */; };
 		2ACC8F9B214103A600E61C59 /* FJBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC8F9A214103A600E61C59 /* FJBaseTableViewCell.m */; };
@@ -108,17 +116,12 @@
 		2AF380F821690EDA0080C048 /* FJHomeRecommendJobCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF380F721690EDA0080C048 /* FJHomeRecommendJobCell.m */; };
 		2AF380FB21690EF40080C048 /* FJHomeEntranceItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF380FA21690EF40080C048 /* FJHomeEntranceItemCell.m */; };
 		2AF380FF21691B380080C048 /* FJFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF380FE21691B380080C048 /* FJFlowLayout.m */; };
-		2AF38107216B4A240080C048 /* FJStoryListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF38106216B4A240080C048 /* FJStoryListController.m */; };
 		2AF3810A216B4A3C0080C048 /* FJJobChanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF38109216B4A3C0080C048 /* FJJobChanceController.m */; };
 		2AF3810D216B4A700080C048 /* FJExcellentStudentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF3810C216B4A700080C048 /* FJExcellentStudentController.m */; };
-		2AF38110216B4AAC0080C048 /* FJEnterpriseDynamicsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF3810F216B4AAC0080C048 /* FJEnterpriseDynamicsController.m */; };
 		2AF38117216B4E5A0080C048 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF38116216B4E5A0080C048 /* UIView+Extension.m */; };
 		2AF38122216B56220080C048 /* FJHomeBannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF38121216B56220080C048 /* FJHomeBannerCell.m */; };
 		2AF38125216B87AD0080C048 /* FJHomeDynamicsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF38124216B87AD0080C048 /* FJHomeDynamicsCell.m */; };
-		2AF38128216B92030080C048 /* FJBinJiangStoryListCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF38127216B92030080C048 /* FJBinJiangStoryListCommand.m */; };
 		2AF3812B216B92230080C048 /* FJBinJiangStory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF3812A216B92230080C048 /* FJBinJiangStory.m */; };
-		2AF3812E216B924A0080C048 /* FJBinJiangStoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF3812D216B924A0080C048 /* FJBinJiangStoryCell.m */; };
-		2AF38132216B9E570080C048 /* FJStoryDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF38131216B9E570080C048 /* FJStoryDetailController.m */; };
 		2AF38135216BB0DE0080C048 /* FJExcellentStudentCompanyJobCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF38134216BB0DE0080C048 /* FJExcellentStudentCompanyJobCell.m */; };
 		2AF38138216BB14B0080C048 /* FJExcellentStudentCompanyJob.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF38137216BB14B0080C048 /* FJExcellentStudentCompanyJob.m */; };
 		2AF3813B216BB2240080C048 /* FJExcellentStudentCompanyJobCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF3813A216BB2240080C048 /* FJExcellentStudentCompanyJobCommand.m */; };
@@ -224,6 +227,23 @@
 		2A578C7A215E166D0041F225 /* FJUserLocalUserService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJUserLocalUserService.m; sourceTree = "<group>"; };
 		2A578C80215E19A10041F225 /* FJNetworkService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJNetworkService.h; sourceTree = "<group>"; };
 		2A578C81215E19A10041F225 /* FJNetworkService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJNetworkService.m; sourceTree = "<group>"; };
+		2ABB5690216CF6EF00931792 /* FJInfomationListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJInfomationListCell.h; sourceTree = "<group>"; };
+		2ABB5691216CF6EF00931792 /* FJInfomationListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJInfomationListCell.m; sourceTree = "<group>"; };
+		2ABB5693216CF77C00931792 /* FJInfomationLite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJInfomationLite.h; sourceTree = "<group>"; };
+		2ABB5694216CF77C00931792 /* FJInfomationLite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJInfomationLite.m; sourceTree = "<group>"; };
+		2ABB5697216CF86200931792 /* FJInfomationListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJInfomationListController.h; sourceTree = "<group>"; };
+		2ABB5698216CF86200931792 /* FJInfomationListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJInfomationListController.m; sourceTree = "<group>"; };
+		2ABB569A216CF96300931792 /* FJInfomationListCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJInfomationListCommand.h; sourceTree = "<group>"; };
+		2ABB569B216CF96300931792 /* FJInfomationListCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJInfomationListCommand.m; sourceTree = "<group>"; };
+		2ABB569E216CFC6700931792 /* info.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = info.h; sourceTree = "<group>"; };
+		2ABB569F216CFE0F00931792 /* FJInfomationDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJInfomationDetailController.h; sourceTree = "<group>"; };
+		2ABB56A0216CFE0F00931792 /* FJInfomationDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJInfomationDetailController.m; sourceTree = "<group>"; };
+		2ABB56A8216D100200931792 /* FJJobListCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJJobListCommand.h; sourceTree = "<group>"; };
+		2ABB56A9216D100200931792 /* FJJobListCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJJobListCommand.m; sourceTree = "<group>"; };
+		2ABB56AB216D103500931792 /* FJJobListService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJJobListService.h; sourceTree = "<group>"; };
+		2ABB56AC216D103500931792 /* FJJobListService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJJobListService.m; sourceTree = "<group>"; };
+		2ABB56AE216D104300931792 /* FJJobService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJJobService.h; sourceTree = "<group>"; };
+		2ABB56AF216D104300931792 /* FJJobService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJJobService.m; sourceTree = "<group>"; };
 		2ACC8F932141020100E61C59 /* FJBaseObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJBaseObject.h; sourceTree = "<group>"; };
 		2ACC8F942141020100E61C59 /* FJBaseObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJBaseObject.m; sourceTree = "<group>"; };
 		2ACC8F962141033500E61C59 /* FJBaseCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJBaseCollectionCell.h; sourceTree = "<group>"; };
@@ -314,28 +334,18 @@
 		2AF380FA21690EF40080C048 /* FJHomeEntranceItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJHomeEntranceItemCell.m; sourceTree = "<group>"; };
 		2AF380FD21691B380080C048 /* FJFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJFlowLayout.h; sourceTree = "<group>"; };
 		2AF380FE21691B380080C048 /* FJFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJFlowLayout.m; sourceTree = "<group>"; };
-		2AF38105216B4A240080C048 /* FJStoryListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJStoryListController.h; sourceTree = "<group>"; };
-		2AF38106216B4A240080C048 /* FJStoryListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJStoryListController.m; sourceTree = "<group>"; };
 		2AF38108216B4A3C0080C048 /* FJJobChanceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJJobChanceController.h; sourceTree = "<group>"; };
 		2AF38109216B4A3C0080C048 /* FJJobChanceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJJobChanceController.m; sourceTree = "<group>"; };
 		2AF3810B216B4A700080C048 /* FJExcellentStudentController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJExcellentStudentController.h; sourceTree = "<group>"; };
 		2AF3810C216B4A700080C048 /* FJExcellentStudentController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJExcellentStudentController.m; sourceTree = "<group>"; };
-		2AF3810E216B4AAC0080C048 /* FJEnterpriseDynamicsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJEnterpriseDynamicsController.h; sourceTree = "<group>"; };
-		2AF3810F216B4AAC0080C048 /* FJEnterpriseDynamicsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJEnterpriseDynamicsController.m; sourceTree = "<group>"; };
 		2AF38115216B4E5A0080C048 /* UIView+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		2AF38116216B4E5A0080C048 /* UIView+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		2AF38120216B56220080C048 /* FJHomeBannerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJHomeBannerCell.h; sourceTree = "<group>"; };
 		2AF38121216B56220080C048 /* FJHomeBannerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJHomeBannerCell.m; sourceTree = "<group>"; };
 		2AF38123216B87AD0080C048 /* FJHomeDynamicsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJHomeDynamicsCell.h; sourceTree = "<group>"; };
 		2AF38124216B87AD0080C048 /* FJHomeDynamicsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJHomeDynamicsCell.m; sourceTree = "<group>"; };
-		2AF38126216B92030080C048 /* FJBinJiangStoryListCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJBinJiangStoryListCommand.h; sourceTree = "<group>"; };
-		2AF38127216B92030080C048 /* FJBinJiangStoryListCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJBinJiangStoryListCommand.m; sourceTree = "<group>"; };
 		2AF38129216B92230080C048 /* FJBinJiangStory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJBinJiangStory.h; sourceTree = "<group>"; };
 		2AF3812A216B92230080C048 /* FJBinJiangStory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJBinJiangStory.m; sourceTree = "<group>"; };
-		2AF3812C216B924A0080C048 /* FJBinJiangStoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJBinJiangStoryCell.h; sourceTree = "<group>"; };
-		2AF3812D216B924A0080C048 /* FJBinJiangStoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJBinJiangStoryCell.m; sourceTree = "<group>"; };
-		2AF38130216B9E570080C048 /* FJStoryDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJStoryDetailController.h; sourceTree = "<group>"; };
-		2AF38131216B9E570080C048 /* FJStoryDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJStoryDetailController.m; sourceTree = "<group>"; };
 		2AF38133216BB0DE0080C048 /* FJExcellentStudentCompanyJobCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJExcellentStudentCompanyJobCell.h; sourceTree = "<group>"; };
 		2AF38134216BB0DE0080C048 /* FJExcellentStudentCompanyJobCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJExcellentStudentCompanyJobCell.m; sourceTree = "<group>"; };
 		2AF38136216BB14B0080C048 /* FJExcellentStudentCompanyJob.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJExcellentStudentCompanyJob.h; sourceTree = "<group>"; };
@@ -425,6 +435,7 @@
 		2A486EAC213F6C4200AB4E64 /* Job */ = {
 			isa = PBXGroup;
 			children = (
+				2ABB56A5216D0FCA00931792 /* job */,
 				2A578C71215E15A90041F225 /* user */,
 				2ACC8F852140FFC900E61C59 /* core */,
 				2AF380D12168F4CA0080C048 /* home */,
@@ -597,6 +608,73 @@
 			children = (
 			);
 			path = net;
+			sourceTree = "<group>";
+		};
+		2ABB568D216CF6A900931792 /* info */ = {
+			isa = PBXGroup;
+			children = (
+				2ABB568E216CF6B800931792 /* view */,
+				2ABB5696216CF83100931792 /* controller */,
+				2ABB5697216CF86200931792 /* FJInfomationListController.h */,
+				2ABB5698216CF86200931792 /* FJInfomationListController.m */,
+				2ABB569E216CFC6700931792 /* info.h */,
+			);
+			path = info;
+			sourceTree = "<group>";
+		};
+		2ABB568E216CF6B800931792 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				2ABB568F216CF6C000931792 /* cell */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		2ABB568F216CF6C000931792 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				2ABB5690216CF6EF00931792 /* FJInfomationListCell.h */,
+				2ABB5691216CF6EF00931792 /* FJInfomationListCell.m */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		2ABB5696216CF83100931792 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				2ABB569F216CFE0F00931792 /* FJInfomationDetailController.h */,
+				2ABB56A0216CFE0F00931792 /* FJInfomationDetailController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		2ABB56A5216D0FCA00931792 /* job */ = {
+			isa = PBXGroup;
+			children = (
+				2ABB56A6216D0FDE00931792 /* net */,
+				2ABB56A7216D0FED00931792 /* service */,
+			);
+			path = job;
+			sourceTree = "<group>";
+		};
+		2ABB56A6216D0FDE00931792 /* net */ = {
+			isa = PBXGroup;
+			children = (
+				2ABB56A8216D100200931792 /* FJJobListCommand.h */,
+				2ABB56A9216D100200931792 /* FJJobListCommand.m */,
+			);
+			path = net;
+			sourceTree = "<group>";
+		};
+		2ABB56A7216D0FED00931792 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				2ABB56AE216D104300931792 /* FJJobService.h */,
+				2ABB56AF216D104300931792 /* FJJobService.m */,
+				2ABB56AB216D103500931792 /* FJJobListService.h */,
+				2ABB56AC216D103500931792 /* FJJobListService.m */,
+			);
+			path = service;
 			sourceTree = "<group>";
 		};
 		2ACC8F842140FF3C00E61C59 /* common */ = {
@@ -1008,6 +1086,8 @@
 			children = (
 				2AF38129216B92230080C048 /* FJBinJiangStory.h */,
 				2AF3812A216B92230080C048 /* FJBinJiangStory.m */,
+				2ABB5693216CF77C00931792 /* FJInfomationLite.h */,
+				2ABB5694216CF77C00931792 /* FJInfomationLite.m */,
 				2AF380E72168F8AD0080C048 /* FJHomeEntranceItem.h */,
 				2AF380E82168F8AD0080C048 /* FJHomeEntranceItem.m */,
 				2AF38136216BB14B0080C048 /* FJExcellentStudentCompanyJob.h */,
@@ -1042,10 +1122,10 @@
 		2AF380EF2168FF5E0080C048 /* net */ = {
 			isa = PBXGroup;
 			children = (
+				2ABB569A216CF96300931792 /* FJInfomationListCommand.h */,
+				2ABB569B216CF96300931792 /* FJInfomationListCommand.m */,
 				2AF380F02168FF8D0080C048 /* FJRecommendJobsCommand.h */,
 				2AF380F12168FF8D0080C048 /* FJRecommendJobsCommand.m */,
-				2AF38126216B92030080C048 /* FJBinJiangStoryListCommand.h */,
-				2AF38127216B92030080C048 /* FJBinJiangStoryListCommand.m */,
 				2AF3813C216C4B1D0080C048 /* FJHomeDynamicsListCommand.h */,
 				2AF3813D216C4B1D0080C048 /* FJHomeDynamicsListCommand.m */,
 				2AF38139216BB2240080C048 /* FJExcellentStudentCompanyJobCommand.h */,
@@ -1074,23 +1154,11 @@
 		2AF38100216B496C0080C048 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				2AF38101216B49930080C048 /* story */,
+				2ABB568D216CF6A900931792 /* info */,
 				2AF38104216B49CD0080C048 /* chance */,
 				2AF38102216B499E0080C048 /* student */,
-				2AF38103216B49A80080C048 /* enterprise */,
 			);
 			path = controller;
-			sourceTree = "<group>";
-		};
-		2AF38101216B49930080C048 /* story */ = {
-			isa = PBXGroup;
-			children = (
-				2AF38118216B52CC0080C048 /* view */,
-				2AF3812F216B9E3C0080C048 /* controller */,
-				2AF38105216B4A240080C048 /* FJStoryListController.h */,
-				2AF38106216B4A240080C048 /* FJStoryListController.m */,
-			);
-			path = story;
 			sourceTree = "<group>";
 		};
 		2AF38102216B499E0080C048 /* student */ = {
@@ -1101,16 +1169,6 @@
 				2AF3810C216B4A700080C048 /* FJExcellentStudentController.m */,
 			);
 			path = student;
-			sourceTree = "<group>";
-		};
-		2AF38103216B49A80080C048 /* enterprise */ = {
-			isa = PBXGroup;
-			children = (
-				2AF3811E216B52FA0080C048 /* view */,
-				2AF3810E216B4AAC0080C048 /* FJEnterpriseDynamicsController.h */,
-				2AF3810F216B4AAC0080C048 /* FJEnterpriseDynamicsController.m */,
-			);
-			path = enterprise;
 			sourceTree = "<group>";
 		};
 		2AF38104216B49CD0080C048 /* chance */ = {
@@ -1130,23 +1188,6 @@
 				2AF38116216B4E5A0080C048 /* UIView+Extension.m */,
 			);
 			path = "UIView+";
-			sourceTree = "<group>";
-		};
-		2AF38118216B52CC0080C048 /* view */ = {
-			isa = PBXGroup;
-			children = (
-				2AF38119216B52D30080C048 /* cell */,
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		2AF38119216B52D30080C048 /* cell */ = {
-			isa = PBXGroup;
-			children = (
-				2AF3812C216B924A0080C048 /* FJBinJiangStoryCell.h */,
-				2AF3812D216B924A0080C048 /* FJBinJiangStoryCell.m */,
-			);
-			path = cell;
 			sourceTree = "<group>";
 		};
 		2AF3811A216B52D90080C048 /* view */ = {
@@ -1179,30 +1220,6 @@
 				2AF38134216BB0DE0080C048 /* FJExcellentStudentCompanyJobCell.m */,
 			);
 			path = cell;
-			sourceTree = "<group>";
-		};
-		2AF3811E216B52FA0080C048 /* view */ = {
-			isa = PBXGroup;
-			children = (
-				2AF3811F216B53030080C048 /* cell */,
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		2AF3811F216B53030080C048 /* cell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = cell;
-			sourceTree = "<group>";
-		};
-		2AF3812F216B9E3C0080C048 /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				2AF38130216B9E570080C048 /* FJStoryDetailController.h */,
-				2AF38131216B9E570080C048 /* FJStoryDetailController.m */,
-			);
-			path = controller;
 			sourceTree = "<group>";
 		};
 		45B7136A60A3F5932187B6BF /* Frameworks */ = {
@@ -1436,6 +1453,8 @@
 				2AF380F821690EDA0080C048 /* FJHomeRecommendJobCell.m in Sources */,
 				2AF380B02166174D0080C048 /* FJInterviewedController.m in Sources */,
 				2AF380BD21662EFB0080C048 /* FJActiveJobCell.m in Sources */,
+				2ABB56AA216D100200931792 /* FJJobListCommand.m in Sources */,
+				2ABB569C216CF96300931792 /* FJInfomationListCommand.m in Sources */,
 				2A09C871215E6CD300AC53C4 /* FJUser+Extension.m in Sources */,
 				2AF3813B216BB2240080C048 /* FJExcellentStudentCompanyJobCommand.m in Sources */,
 				2A09C85E215E62A500AC53C4 /* FJBaseLoginController.m in Sources */,
@@ -1444,10 +1463,10 @@
 				2A09C88B215E7E0100AC53C4 /* FJTextField.m in Sources */,
 				2A495D4E214175C400E6E24D /* FJOnlineController.m in Sources */,
 				2AF380D52168F5090080C048 /* FJHomeService.m in Sources */,
-				2AF38107216B4A240080C048 /* FJStoryListController.m in Sources */,
 				2AF380FB21690EF40080C048 /* FJHomeEntranceItemCell.m in Sources */,
 				2A09C865215E675900AC53C4 /* FJFastLoginController.m in Sources */,
 				2ACC8FAF214106B500E61C59 /* FJNetworkCommand.m in Sources */,
+				2ABB5695216CF77C00931792 /* FJInfomationLite.m in Sources */,
 				2ACC8F9B214103A600E61C59 /* FJBaseTableViewCell.m in Sources */,
 				2AF380CF21663F910080C048 /* FJExchangeCell.m in Sources */,
 				2A09C86B215E67EB00AC53C4 /* FJResetPasswordController.m in Sources */,
@@ -1466,17 +1485,17 @@
 				2AF380F22168FF8D0080C048 /* FJRecommendJobsCommand.m in Sources */,
 				2A486EAF213F6C4200AB4E64 /* FJAppDelegate.m in Sources */,
 				2AF380A5216616100080C048 /* FJSettingController.m in Sources */,
-				2AF38110216B4AAC0080C048 /* FJEnterpriseDynamicsController.m in Sources */,
+				2ABB5692216CF6EF00931792 /* FJInfomationListCell.m in Sources */,
 				2A495D482141758D00E6E24D /* FJMeController.m in Sources */,
 				2AF38135216BB0DE0080C048 /* FJExcellentStudentCompanyJobCell.m in Sources */,
 				2AF380EE2168FB690080C048 /* FJBaseHomeController.m in Sources */,
 				2AF380FF21691B380080C048 /* FJFlowLayout.m in Sources */,
+				2ABB56A1216CFE0F00931792 /* FJInfomationDetailController.m in Sources */,
 				2A578C78215E16570041F225 /* FJUserService.m in Sources */,
 				2A09C868215E67C900AC53C4 /* FJAccountLoginController.m in Sources */,
-				2AF38132216B9E570080C048 /* FJStoryDetailController.m in Sources */,
+				2ABB5699216CF86200931792 /* FJInfomationListController.m in Sources */,
 				2AF380B6216617700080C048 /* FJTalkedController.m in Sources */,
 				2A578C74215E160B0041F225 /* FJUser.m in Sources */,
-				2AF3812E216B924A0080C048 /* FJBinJiangStoryCell.m in Sources */,
 				2A09C86E215E69AF00AC53C4 /* FJAppLaunch.m in Sources */,
 				2ACC8FA42141043A00E61C59 /* FJBaseCollectionViewHeader.m in Sources */,
 				2AF380E92168F8AD0080C048 /* FJHomeEntranceItem.m in Sources */,
@@ -1486,17 +1505,18 @@
 				2A578C7B215E166D0041F225 /* FJUserLocalUserService.m in Sources */,
 				2ACC8FBE21410A2300E61C59 /* FJBaseNavigationController.m in Sources */,
 				2A495D4B214175A300E6E24D /* FJMsgController.m in Sources */,
+				2ABB56AD216D103500931792 /* FJJobListService.m in Sources */,
 				2AF380CA2166399B0080C048 /* FJExchangeListController.m in Sources */,
 				2AF380C3216638A60080C048 /* FJAttachmentController.m in Sources */,
 				2AF3809F216612E80080C048 /* FJJobCell.m in Sources */,
 				2ACC8FA12141041A00E61C59 /* FJBaseCollectionViewFooter.m in Sources */,
 				2AF380AD216617310080C048 /* FJDeliveredControler.m in Sources */,
 				2ACC8FC821410AF000E61C59 /* NSString+Exteniosn.m in Sources */,
+				2ABB56B0216D104300931792 /* FJJobService.m in Sources */,
 				2ACC8FCB21410B0400E61C59 /* UIColor+Extension.m in Sources */,
 				2A09C881215E7AC100AC53C4 /* FJLoginVertifyTextField.m in Sources */,
 				2ACC8F9E214103E800E61C59 /* FJBaseTableViewFooter.m in Sources */,
 				2ACC8FA72141046900E61C59 /* FJBaseTableViewHeader.m in Sources */,
-				2AF38128216B92030080C048 /* FJBinJiangStoryListCommand.m in Sources */,
 				2AF380C6216639790080C048 /* FJExchangeController.m in Sources */,
 				2AF38122216B56220080C048 /* FJHomeBannerCell.m in Sources */,
 				2ACC8FAB2141065900E61C59 /* FJService.m in Sources */,

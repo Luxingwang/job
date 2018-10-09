@@ -1,21 +1,21 @@
 //
-//  FJStoryDetailController.m
+//  FJInfomationDetailController.m
 //  Job
 //
-//  Created by 小黑胖 on 2018/10/8.
+//  Created by 小黑胖 on 2018/10/9.
 //  Copyright © 2018年 lxw. All rights reserved.
 //
 #import <Masonry.h>
 #import "FJService.h"
 #import "UIView+Extension.h"
-#import "FJStoryDetailController.h"
+#import "FJInfomationDetailController.h"
 
-@interface FJStoryDetailController ()<UIWebViewDelegate>
+@interface FJInfomationDetailController ()<UIWebViewDelegate>
 @property (nonatomic,strong) UIWebView *webView;
+
 @end
 
-@implementation FJStoryDetailController
-
+@implementation FJInfomationDetailController
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpSubviews];
@@ -39,9 +39,12 @@
 -(void)fetchDetail
 {
     NSString *requestUrl = URLForge(@"/app/information/detail");
-    NSDictionary *param = @{@"id":self.storyId};
+    NSDictionary *param = @{@"id":self.infoId};
     [self.view at_postLoading];
     [[FJService instance].networkService networkWithUrl:requestUrl method:POST parameter:param successBlock:^(id data) {
+        NSString *content = [data objectForKey:@"content"];
+        self.navigationItem.title = [data objectForKey:@"title"];
+        [self.webView loadHTMLString:content baseURL:nil];
         
     } failureBlock:^(NSString *msg) {
         [self.view at_postMessage:msg];
@@ -65,4 +68,5 @@
     }
     return _webView;
 }
+
 @end

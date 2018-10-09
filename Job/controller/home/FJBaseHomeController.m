@@ -12,10 +12,11 @@
 #import "FJBaseHomeController.h"
 #import "FJHomeEntranceItemCell.h"
 #import "FJHomeRecommendJobCell.h"
-#import "FJStoryListController.h"
+//#import "FJStoryListController.h"
 #import "FJJobChanceController.h"
 #import "FJExcellentStudentController.h"
-#import "FJEnterpriseDynamicsController.h"
+#import "FJInfomationListController.h"
+//#import "FJEnterpriseDynamicsController.h"
 @interface FJBaseHomeController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @end
@@ -138,7 +139,8 @@
         NSInteger row = indexPath.row;
         if (row==0)
         {
-            FJStoryListController *controller = [[FJStoryListController alloc] init];
+            FJInfomationListController *controller = [[FJInfomationListController alloc] init];
+            controller.listType = InfomationListTypeStory;
             [self.navigationController pushViewController:controller animated:YES];
         }
         else if (row==1)
@@ -148,7 +150,8 @@
         }
         else if (row==2)
         {
-            FJEnterpriseDynamicsController *controller = [[FJEnterpriseDynamicsController alloc] init];
+            FJInfomationListController *controller = [[FJInfomationListController alloc] init];
+            controller.listType = InfomationListTypeNews;
             [self.navigationController pushViewController:controller animated:YES];
         }
         else

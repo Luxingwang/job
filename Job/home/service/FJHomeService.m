@@ -9,7 +9,7 @@
 #import "FJHomeEntranceItem.h"
 #import "FJRecommendJobsCommand.h"
 #import "FJHomeDynamicsListCommand.h"
-#import "FJBinJiangStoryListCommand.h"
+#import "FJInfomationListCommand.h"
 #import "FJExcellentStudentCompanyJobCommand.h"
 @implementation FJHomeService
 +(FJHomeService*)instance{
@@ -38,9 +38,10 @@
     [command execute];
 }
 
--(void)fetchBinJiangStoryListSuccessBlock:(SUCCESS_BLOCK)successBlock failureBlock:(FAILURE_BLOCK)errorBlock
+-(void)fetchInfomationListAtpage:(NSInteger)page listType:(InfomationListType)listType successBlock:(SUCCESS_BLOCK)successBlock failureBlock:(FAILURE_BLOCK)errorBlock
 {
-    FJBinJiangStoryListCommand *command = [[FJBinJiangStoryListCommand alloc] init];
+    FJInfomationListCommand *command = [[FJInfomationListCommand alloc] init];
+    command.listType = listType;
     command.errorBlock = errorBlock;
     command.successBlock = successBlock;
     [command execute];
