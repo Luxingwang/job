@@ -11,6 +11,5 @@
 @interface FJJobListService : NSObject
 +(FJJobListService*)instance;
 @property (nonatomic,strong) NSMutableDictionary *params;
-
 -(void)fetchJobListSuccessBlock:(SUCCESS_BLOCK)successBlock failureBlock:(FAILURE_BLOCK)errorBlock;
 @end

@@ -7,6 +7,7 @@
 //
 #import <Masonry.h>
 #import "FJService.h"
+#import "UIView+Extension.h"
 #import "FJActiveJobCell.h"
 #import "UIColor+Extension.h"
 #import "FJInterviewedController.h"
@@ -21,6 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpSubviews];
+    [self initConstraints];
+    [self fecthInterviewedJobList];
     self.navigationItem.title = @"已面试的职位";
 }
 
@@ -43,8 +47,17 @@
 }
 
 #pragma mark
--(void)fecthJobList{
-    
+-(void)fecthInterviewedJobList{
+    [self.view at_postLoading];
+    [[FJService instance].userService fetchUserRelatedJobListAtType:UserRelatedJobListTypeDeliveredReaded successBlock:^(NSArray *jobList) {
+        [self.view at_hideLoading];
+        if (jobList.count) {
+            [self.jobList addObjectsFromArray:jobList];
+        }
+        [self.tableView reloadData];
+    } failureBlock:^(NSString *msg) {
+        [self.view at_postMessage:msg];
+    }];
 }
 #pragma mark
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -58,7 +71,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 100;
+    return 112;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

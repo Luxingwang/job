@@ -6,6 +6,7 @@
 //  Copyright © 2018年 lxw. All rights reserved.
 //
 #import "FJService.h"
+#import "UIView+Extension.h"
 #import "FJFastLoginController.h"
 #import "FJLoginPhoneTextField.h"
 #import "FJLoginVertifyTextField.h"
@@ -22,7 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self fetchVertifyCode];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,9 +73,25 @@
 
 -(void)fetchVertifyCode
 {
-    [[FJService instance].userService fetchFastLoginVertifyCode:nil];
+    
+    NSString *phone = self.phoneTextField.text;
+    [[FJService instance].userService fetchFastLoginVertifyCodeAtPhoneNum:phone successBlock:^(id data) {
+        
+    } failureBlock:^(NSString *msg) {
+        
+    }];
 }
 
+-(void)fastLogin
+{
+    NSString *phone = self.phoneTextField.text;
+    NSString *code = self.vertifyTextField.text;
+    [[FJService instance].userService fastLoginVertifyCodeAtPhoneNum:phone code:code successBlock:^(id data) {
+        
+    } failureBlock:^(NSString *msg) {
+        
+    }];
+}
 
 #pragma mark
 -(void)didSelectLoginByAccountPassword:(UIButton*)sender
@@ -88,6 +104,7 @@
 - (FJLoginHandleButton*)handleButton{
     if (_handleButton==nil) {
         _handleButton = [FJLoginHandleButton buttonWithHandleType:LoginHandleTypeFast];
+        [_handleButton addTarget:self action:@selector(fastLogin) forControlEvents:UIControlEventTouchUpInside];
     }
     return _handleButton;
 }
@@ -102,6 +119,7 @@
 -(FJLoginVertifyTextField*)vertifyTextField{
     if (!_vertifyTextField) {
         _vertifyTextField = [[FJLoginVertifyTextField alloc] init];
+        [_vertifyTextField.fectchVertifyCodeBtn addTarget:self action:@selector(fetchVertifyCode) forControlEvents:UIControlEventTouchUpInside];
     }
     return _vertifyTextField;
 }

@@ -32,6 +32,7 @@
     ((AFJSONResponseSerializer*)(mannger.responseSerializer)).removesKeysWithNullValues = YES;
     [mannger.requestSerializer setValue:@"ios" forHTTPHeaderField:@"os"];
     [mannger.requestSerializer setValue:@"1.0.1" forHTTPHeaderField:@"version"];
+    [mannger.requestSerializer setValue:@"1" forHTTPHeaderField:@"uid"];
 }
 
 -(void)sendRequestWithUrl:(NSString *)url method:(REQUEST_TYPE)requestType{

@@ -55,6 +55,7 @@
 		2A578C78215E16570041F225 /* FJUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A578C77215E16570041F225 /* FJUserService.m */; };
 		2A578C7B215E166D0041F225 /* FJUserLocalUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A578C7A215E166D0041F225 /* FJUserLocalUserService.m */; };
 		2A578C82215E19A10041F225 /* FJNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A578C81215E19A10041F225 /* FJNetworkService.m */; };
+		2A94CDD7216F411200EBC0D0 /* FJUserLoginCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A94CDD6216F411200EBC0D0 /* FJUserLoginCommand.m */; };
 		2ABB5692216CF6EF00931792 /* FJInfomationListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB5691216CF6EF00931792 /* FJInfomationListCell.m */; };
 		2ABB5695216CF77C00931792 /* FJInfomationLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB5694216CF77C00931792 /* FJInfomationLite.m */; };
 		2ABB5699216CF86200931792 /* FJInfomationListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB5698216CF86200931792 /* FJInfomationListController.m */; };
@@ -78,6 +79,7 @@
 		2ACC8FC821410AF000E61C59 /* NSString+Exteniosn.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC8FC721410AF000E61C59 /* NSString+Exteniosn.m */; };
 		2ACC8FCB21410B0400E61C59 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC8FCA21410B0400E61C59 /* UIColor+Extension.m */; };
 		2ACC8FCE21410B3000E61C59 /* FJTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACC8FCD21410B3000E61C59 /* FJTextView.m */; };
+		2AE8D90B216F98B200E37DCE /* FJUserJobListCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8D90A216F98B200E37DCE /* FJUserJobListCommand.m */; };
 		2AF380862165ED0D0080C048 /* img_me_setting@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AF380842165ED0C0080C048 /* img_me_setting@3x.png */; };
 		2AF380872165ED0D0080C048 /* img_me_setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AF380852165ED0D0080C048 /* img_me_setting@2x.png */; };
 		2AF3808A2165EE6C0080C048 /* img_me_collection@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AF380882165EE6C0080C048 /* img_me_collection@2x.png */; };
@@ -227,6 +229,8 @@
 		2A578C7A215E166D0041F225 /* FJUserLocalUserService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJUserLocalUserService.m; sourceTree = "<group>"; };
 		2A578C80215E19A10041F225 /* FJNetworkService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJNetworkService.h; sourceTree = "<group>"; };
 		2A578C81215E19A10041F225 /* FJNetworkService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJNetworkService.m; sourceTree = "<group>"; };
+		2A94CDD5216F411200EBC0D0 /* FJUserLoginCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJUserLoginCommand.h; sourceTree = "<group>"; };
+		2A94CDD6216F411200EBC0D0 /* FJUserLoginCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJUserLoginCommand.m; sourceTree = "<group>"; };
 		2ABB5690216CF6EF00931792 /* FJInfomationListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJInfomationListCell.h; sourceTree = "<group>"; };
 		2ABB5691216CF6EF00931792 /* FJInfomationListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJInfomationListCell.m; sourceTree = "<group>"; };
 		2ABB5693216CF77C00931792 /* FJInfomationLite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJInfomationLite.h; sourceTree = "<group>"; };
@@ -274,6 +278,8 @@
 		2ACC8FCA21410B0400E61C59 /* UIColor+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
 		2ACC8FCC21410B3000E61C59 /* FJTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJTextView.h; sourceTree = "<group>"; };
 		2ACC8FCD21410B3000E61C59 /* FJTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJTextView.m; sourceTree = "<group>"; };
+		2AE8D909216F98B200E37DCE /* FJUserJobListCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJUserJobListCommand.h; sourceTree = "<group>"; };
+		2AE8D90A216F98B200E37DCE /* FJUserJobListCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJUserJobListCommand.m; sourceTree = "<group>"; };
 		2AF380842165ED0C0080C048 /* img_me_setting@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_me_setting@3x.png"; sourceTree = "<group>"; };
 		2AF380852165ED0D0080C048 /* img_me_setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_me_setting@2x.png"; sourceTree = "<group>"; };
 		2AF380882165EE6C0080C048 /* img_me_collection@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_me_collection@2x.png"; sourceTree = "<group>"; };
@@ -606,6 +612,10 @@
 		2A578C7C215E16C80041F225 /* net */ = {
 			isa = PBXGroup;
 			children = (
+				2A94CDD5216F411200EBC0D0 /* FJUserLoginCommand.h */,
+				2A94CDD6216F411200EBC0D0 /* FJUserLoginCommand.m */,
+				2AE8D909216F98B200E37DCE /* FJUserJobListCommand.h */,
+				2AE8D90A216F98B200E37DCE /* FJUserJobListCommand.m */,
 			);
 			path = net;
 			sourceTree = "<group>";
@@ -1499,11 +1509,13 @@
 				2A09C86E215E69AF00AC53C4 /* FJAppLaunch.m in Sources */,
 				2ACC8FA42141043A00E61C59 /* FJBaseCollectionViewHeader.m in Sources */,
 				2AF380E92168F8AD0080C048 /* FJHomeEntranceItem.m in Sources */,
+				2AE8D90B216F98B200E37DCE /* FJUserJobListCommand.m in Sources */,
 				2ACC8F952141020100E61C59 /* FJBaseObject.m in Sources */,
 				2A495D452141750700E6E24D /* FJHomeController.m in Sources */,
 				2A458F4721639DED00F194FC /* FJLoginPasswordTextField.m in Sources */,
 				2A578C7B215E166D0041F225 /* FJUserLocalUserService.m in Sources */,
 				2ACC8FBE21410A2300E61C59 /* FJBaseNavigationController.m in Sources */,
+				2A94CDD7216F411200EBC0D0 /* FJUserLoginCommand.m in Sources */,
 				2A495D4B214175A300E6E24D /* FJMsgController.m in Sources */,
 				2ABB56AD216D103500931792 /* FJJobListService.m in Sources */,
 				2AF380CA2166399B0080C048 /* FJExchangeListController.m in Sources */,

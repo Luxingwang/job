@@ -8,18 +8,23 @@
 #import <Masonry.h>
 #import "FJService.h"
 #import "FJJobCell.h"
+#import "UIView+Extension.h"
 #import "UIColor+Extension.h"
 #import "FJDeliveredListController.h"
 
 @interface FJDeliveredListController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *jobList;
+@property (nonatomic,assign) UserRelatedJobListType fetctListType;
 @end
 
 @implementation FJDeliveredListController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpSubviews];
+    [self initConstraints];
+    [self fecthDeliveredJobList];
 }
 
 -(void)viewWillLayoutSubviews{
@@ -48,8 +53,17 @@
 }
 
 #pragma mark
--(void)fecthJobList{
-    
+-(void)fecthDeliveredJobList{
+    [self.view at_postLoading];
+    [[FJService instance].userService fetchUserRelatedJobListAtType:self.fetctListType successBlock:^(NSArray *jobList) {
+        [self.view at_hideLoading];
+        if (jobList.count) {
+            [self.jobList addObjectsFromArray:jobList];
+        }
+        [self.tableView reloadData];
+    } failureBlock:^(NSString *msg) {
+        [self.view at_postMessage:msg];
+    }];
 }
 #pragma mark
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -58,12 +72,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     FJJobCell *cell = [tableView dequeueReusableCellWithIdentifier:[FJJobCell cellId] forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor redColor];
+    cell.job = self.jobList[indexPath.row];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 100;
+    return 112;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -71,6 +85,18 @@
 }
 
 #pragma mark
+-(UserRelatedJobListType)fetctListType
+{
+    if (self.listType==DeliveredListTypeReached)
+    {
+        return UserRelatedJobListTypeDeliveredReached;
+    }
+    if (self.listType==DeliveredListTypeReaded)
+    {
+        return UserRelatedJobListTypeDeliveredReached;
+    }
+    return UserRelatedJobListTypeDeliveredImproper;
+}
 -(NSMutableArray*)jobList{
     if (!_jobList) {
         _jobList = [NSMutableArray array];

@@ -12,13 +12,11 @@
 #import "FJBaseHomeController.h"
 #import "FJHomeEntranceItemCell.h"
 #import "FJHomeRecommendJobCell.h"
-//#import "FJStoryListController.h"
 #import "FJJobChanceController.h"
 #import "FJExcellentStudentController.h"
 #import "FJInfomationListController.h"
-//#import "FJEnterpriseDynamicsController.h"
 @interface FJBaseHomeController ()<UICollectionViewDelegate,UICollectionViewDataSource>
-
+@property (nonatomic,strong) UISearchBar *searchBar;
 @end
 
 @implementation FJBaseHomeController
@@ -27,6 +25,7 @@
     [super viewDidLoad];
     [self setUpSubviews];
     [self initConstraints];
+    [self setUpRightItem];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,6 +41,11 @@
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.view);
     }];
+}
+
+-(void)setUpRightItem
+{
+    
 }
 
 #pragma mark
