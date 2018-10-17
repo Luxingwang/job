@@ -100,12 +100,12 @@
                   moduleName = "Job"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ZYM/Desktop/job/Job/controller/user/login/FJFastLoginController.m"
-                  timestampString = "560964507.23411"
+                  timestampString = "561364329.288958"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "91"
                   endingLineNumber = "91"
-                  offsetFromSymbolStart = "52">
+                  offsetFromSymbolStart = "56">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -115,12 +115,12 @@
                   moduleName = "Job"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ZYM/Desktop/job/Job/controller/user/login/FJFastLoginController.m"
-                  timestampString = "560964507.236937"
+                  timestampString = "561364329.2905"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "93"
                   endingLineNumber = "93"
-                  offsetFromSymbolStart = "52">
+                  offsetFromSymbolStart = "56">
                </Location>
             </Locations>
          </BreakpointContent>
