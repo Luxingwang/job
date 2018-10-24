@@ -11,6 +11,7 @@
 #import "FJHomeController.h"
 #import "FJOnlineController.h"
 #import "FJTabBarController.h"
+#import "NIMSessionListViewController.h"
 #import "FJBaseNavigationController.h"
 @interface FJTabBarController ()
 
@@ -38,15 +39,17 @@
     homeNav.tabBarItem.image = [UIImage imageNamed:@"img_tab_home"];
     homeNav.tabBarItem.selectedImage=[UIImage imageNamed:@"img_tab_home"];
     /*消息*/
-    FJMsgController *msgController = [[FJMsgController alloc] init];
+    NIMSessionListViewController *msgController = [[NIMSessionListViewController alloc] init];
     FJBaseNavigationController *msgNav = [[FJBaseNavigationController alloc] initWithRootViewController:msgController];
     msgNav.tabBarItem.title = @"消息";
+    msgController.navigationItem.title = @"消息";
     msgNav.tabBarItem.image = [UIImage imageNamed:@"img_bar-msg"];
     msgNav.tabBarItem.selectedImage=[UIImage imageNamed:@"img_bar-msg"];
     /*在线*/
     FJOnlineController *onlineController = [[FJOnlineController alloc] init];
     FJBaseNavigationController *onlineNav = [[FJBaseNavigationController alloc] initWithRootViewController:onlineController];
     onlineNav.tabBarItem.title = @"局长在线";
+    onlineController.navigationItem.title = @"局长在线";
     onlineNav.tabBarItem.image = [UIImage imageNamed:@"img_tab_online"];
     onlineNav.tabBarItem.selectedImage=[UIImage imageNamed:@"img_tab_online"];
     /*我的*/
