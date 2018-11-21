@@ -6,8 +6,8 @@
 //  Copyright © 2018年 lxw. All rights reserved.
 //
 
-#import "FJBaseController.h"
+#import "BaseTableController.h"
 
-@interface FJSettingController : FJBaseController
+@interface FJSettingController : BaseTableController
 
 @end

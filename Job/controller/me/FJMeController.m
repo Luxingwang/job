@@ -16,6 +16,8 @@
 #import "FJCollectedController.h"
 #import "FJAttachmentController.h"
 #import "FJInterviewedController.h"
+#import "FJEditedResumeController.h"
+
 @interface FJMeController ()<UITableViewDelegate,UITableViewDataSource,FJMeInfoCellDelegate>
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSArray *entranceInfoList;
@@ -75,8 +77,12 @@
     return [[UIView alloc]init];
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section==1)
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // 编辑个人简历
+    if (!indexPath.section) {
+        [self.navigationController pushViewController:[[FJEditedResumeController alloc]init] animated:YES];
+    }
+    else if (indexPath.section==1)
     {
         FJAttachmentController *controller = [[FJAttachmentController alloc] init];
         [self.navigationController pushViewController:controller animated:YES];

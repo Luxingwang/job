@@ -10,4 +10,7 @@ pod 'AFNetworking', '~> 3.2.1'
 pod 'HMSegmentedControl'
 pod 'MBProgressHUD'
 pod 'SDWebImage', '~> 4.4.2'
+
+pod 'BlocksKit'
+pod 'DateTools'
 end
