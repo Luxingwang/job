@@ -116,6 +116,10 @@
 		2AF3813B216BB2240080C048 /* FJExcellentStudentCompanyJobCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF3813A216BB2240080C048 /* FJExcellentStudentCompanyJobCommand.m */; };
 		2AF3813E216C4B1D0080C048 /* FJHomeDynamicsListCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF3813D216C4B1D0080C048 /* FJHomeDynamicsListCommand.m */; };
 		74CC3F039044A3774A4F06E4 /* libPods-Job.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFCE508754BAD08A479B44BB /* libPods-Job.a */; };
+		92184EBC21A6EE780014B290 /* FJResumeYearContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92184EBB21A6EE780014B290 /* FJResumeYearContentCell.m */; };
+		92184EBF21A6F0290014B290 /* FJResumeCareerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92184EBE21A6F0290014B290 /* FJResumeCareerCell.m */; };
+		92184EC221A6F0530014B290 /* FJResumeWorkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92184EC121A6F0530014B290 /* FJResumeWorkCell.m */; };
+		92184EC521A6F0AE0014B290 /* FJResumeEduCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92184EC421A6F0AE0014B290 /* FJResumeEduCell.m */; };
 		92EA463521A5AF4400A1820F /* SelectPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92EA45AE21A5AF4400A1820F /* SelectPhotoManager.m */; };
 		92EA463621A5AF4400A1820F /* FBAttachmentUploadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 92EA45B021A5AF4400A1820F /* FBAttachmentUploadVC.m */; };
 		92EA463721A5AF4400A1820F /* YLPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92EA45B221A5AF4400A1820F /* YLPhotoView.m */; };
@@ -380,6 +384,14 @@
 		2AF3813A216BB2240080C048 /* FJExcellentStudentCompanyJobCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJExcellentStudentCompanyJobCommand.m; sourceTree = "<group>"; };
 		2AF3813C216C4B1D0080C048 /* FJHomeDynamicsListCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJHomeDynamicsListCommand.h; sourceTree = "<group>"; };
 		2AF3813D216C4B1D0080C048 /* FJHomeDynamicsListCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJHomeDynamicsListCommand.m; sourceTree = "<group>"; };
+		92184EBA21A6EE780014B290 /* FJResumeYearContentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJResumeYearContentCell.h; sourceTree = "<group>"; };
+		92184EBB21A6EE780014B290 /* FJResumeYearContentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJResumeYearContentCell.m; sourceTree = "<group>"; };
+		92184EBD21A6F0290014B290 /* FJResumeCareerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJResumeCareerCell.h; sourceTree = "<group>"; };
+		92184EBE21A6F0290014B290 /* FJResumeCareerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJResumeCareerCell.m; sourceTree = "<group>"; };
+		92184EC021A6F0530014B290 /* FJResumeWorkCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJResumeWorkCell.h; sourceTree = "<group>"; };
+		92184EC121A6F0530014B290 /* FJResumeWorkCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJResumeWorkCell.m; sourceTree = "<group>"; };
+		92184EC321A6F0AE0014B290 /* FJResumeEduCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJResumeEduCell.h; sourceTree = "<group>"; };
+		92184EC421A6F0AE0014B290 /* FJResumeEduCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJResumeEduCell.m; sourceTree = "<group>"; };
 		92EA45A721A5AF4400A1820F /* FJMeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJMeController.h; sourceTree = "<group>"; };
 		92EA45AD21A5AF4400A1820F /* SelectPhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectPhotoManager.h; sourceTree = "<group>"; };
 		92EA45AE21A5AF4400A1820F /* SelectPhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPhotoManager.m; sourceTree = "<group>"; };
@@ -1376,9 +1388,17 @@
 			isa = PBXGroup;
 			children = (
 				92EA45DC21A5AF4400A1820F /* FJResumePreviewController.h */,
-				92EA45DD21A5AF4400A1820F /* FJResumeBasicInfoCell.h */,
 				92EA45DE21A5AF4400A1820F /* FJResumePreviewController.m */,
+				92EA45DD21A5AF4400A1820F /* FJResumeBasicInfoCell.h */,
 				92EA45DF21A5AF4400A1820F /* FJResumeBasicInfoCell.m */,
+				92184EBA21A6EE780014B290 /* FJResumeYearContentCell.h */,
+				92184EBB21A6EE780014B290 /* FJResumeYearContentCell.m */,
+				92184EBD21A6F0290014B290 /* FJResumeCareerCell.h */,
+				92184EBE21A6F0290014B290 /* FJResumeCareerCell.m */,
+				92184EC021A6F0530014B290 /* FJResumeWorkCell.h */,
+				92184EC121A6F0530014B290 /* FJResumeWorkCell.m */,
+				92184EC321A6F0AE0014B290 /* FJResumeEduCell.h */,
+				92184EC421A6F0AE0014B290 /* FJResumeEduCell.m */,
 			);
 			path = preview;
 			sourceTree = "<group>";
@@ -1872,6 +1892,7 @@
 				92EA466921A5AF4400A1820F /* TitleArrowCell.m in Sources */,
 				2A09C875215E71C000AC53C4 /* FJLoginHandleButton.m in Sources */,
 				2AF38125216B87AD0080C048 /* FJHomeDynamicsCell.m in Sources */,
+				92184EBC21A6EE780014B290 /* FJResumeYearContentCell.m in Sources */,
 				2AF38117216B4E5A0080C048 /* UIView+Extension.m in Sources */,
 				2AF38138216BB14B0080C048 /* FJExcellentStudentCompanyJob.m in Sources */,
 				92EA466421A5AF4400A1820F /* SWActionSheet.m in Sources */,
@@ -1883,6 +1904,7 @@
 				92EA467221A5AFA000A1820F /* FJUserWorkCommond.m in Sources */,
 				92EA465A21A5AF4400A1820F /* NSDate+SDJTools.m in Sources */,
 				2A486EAF213F6C4200AB4E64 /* FJAppDelegate.m in Sources */,
+				92184EBF21A6F0290014B290 /* FJResumeCareerCell.m in Sources */,
 				92EA464521A5AF4400A1820F /* FJProjectController.m in Sources */,
 				2ABB5692216CF6EF00931792 /* FJInfomationListCell.m in Sources */,
 				92EA465F21A5AF4400A1820F /* FJMeEntranceCell.m in Sources */,
@@ -1895,6 +1917,7 @@
 				92EA465421A5AF4400A1820F /* FJPasswordController.m in Sources */,
 				92EA466A21A5AF4400A1820F /* FJMeController.m in Sources */,
 				2AF380FF21691B380080C048 /* FJFlowLayout.m in Sources */,
+				92184EC221A6F0530014B290 /* FJResumeWorkCell.m in Sources */,
 				2ABB56A1216CFE0F00931792 /* FJInfomationDetailController.m in Sources */,
 				92EA464321A5AF4400A1820F /* FJEditedResumeHeaderView.m in Sources */,
 				2A578C78215E16570041F225 /* FJUserService.m in Sources */,
@@ -1953,6 +1976,7 @@
 				92EA466021A5AF4400A1820F /* SDJTextView.m in Sources */,
 				92EA465721A5AF4400A1820F /* FJBindPhoneController.m in Sources */,
 				2A09C887215E7D3400AC53C4 /* FJLoginPhoneTextField.m in Sources */,
+				92184EC521A6F0AE0014B290 /* FJResumeEduCell.m in Sources */,
 				2A578C82215E19A10041F225 /* FJNetworkService.m in Sources */,
 				2AF3810A216B4A3C0080C048 /* FJJobChanceController.m in Sources */,
 				92EA463D21A5AF4400A1820F /* ManageCollectionTagsFlowLayout.m in Sources */,
