@@ -22,8 +22,14 @@ typedef void (^VoidBlock)(void);
 #define SCREEN_WIDTH         ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT        ([UIScreen mainScreen].bounds.size.height)
 #define FormatString(string,args...) [NSString stringWithFormat:string, args]
-#define WeakSelf(type) autoreleasepool{} __weak __typeof__(type) weakSelf = type;
-#define StrongSelf(type) autoreleasepool{} __strong __typeof__(type) strongSelf = type;
+
+#define weakify(var) __weak typeof(var) XYWeak_##var = var;
+#define strongify(var) \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Wshadow\"") \
+__strong typeof(var) var = XYWeak_##var; \
+_Pragma("clang diagnostic pop")
+
 
 #define SuppressPerformSelectorLeakWarning(Stuff) \
 do { \

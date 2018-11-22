@@ -14,7 +14,6 @@
 {
     [super viewDidLoad];
     self.title = @"简历预览";
-    
     [self setupTableView];
 }
 

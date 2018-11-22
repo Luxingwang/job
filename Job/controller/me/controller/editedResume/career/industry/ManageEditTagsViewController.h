@@ -29,9 +29,6 @@
 
 /**
  构造
-
- @param vcType 界面类型
- @param dataTagList 数据源
  @return return value description
  */
 - (instancetype)initWithAlreadyTagList:(NSArray *)tagList;

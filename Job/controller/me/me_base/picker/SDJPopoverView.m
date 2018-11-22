@@ -141,9 +141,9 @@
 {
     _actionSheet = [[SWActionSheet alloc] initWithView:aView];
     _actionSheet.viewHeight = self.viewHeight;
-//    @weakify(self);
+//    weakify(self);
     [_actionSheet setTouchesBeganBlock:^{
-//        @strongify(self);
+//        strongify(self);
         [self cancelAction];
     }];
     [_actionSheet showInContainerView];

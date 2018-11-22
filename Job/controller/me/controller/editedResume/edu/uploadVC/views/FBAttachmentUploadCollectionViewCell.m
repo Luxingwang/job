@@ -27,6 +27,11 @@ extern NSInteger const kAttachmentPhotoMaxNumber;
     return self;
 }
 
+- (void)configCellWithData:(id)obj
+{
+    
+}
+
 #pragma mark - private
 - (void)setUI {
     [self setSubViewsUI];

@@ -92,7 +92,9 @@
         flowLayout.betweenOfCell = 10;
         _tagsView = [[ManageCollectionTagsView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) collectionViewLayout:flowLayout];
         [self.view addSubview:_tagsView];
+        weakify(self)
         [_tagsView setDidSelectItemAtIndexPath:^(NSIndexPath *indexPath) {
+            weakify(self)
             FJIndustry *data = self.originalArray[indexPath.item];
             data.isSelected = !data.isSelected;
             [self.tagsView reloadData];

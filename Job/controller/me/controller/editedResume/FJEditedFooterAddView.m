@@ -18,7 +18,7 @@
     if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
         self.button = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.contentView addSubview:self.button];
-         [self.button setTitleColor:[UIColor at_colorWithHex:0x2EA7E0] forState:UIControlStateNormal];
+        [self.button setTitleColor:[UIColor at_colorWithHex:0x2EA7E0] forState:UIControlStateNormal];
         [self.button bk_addEventHandler:^(id sender) {
             !self.addBlock ?: self.addBlock();
         } forControlEvents:UIControlEventTouchUpInside];

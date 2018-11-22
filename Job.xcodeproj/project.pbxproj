@@ -1214,12 +1214,12 @@
 		92EA45A621A5AF4400A1820F /* me */ = {
 			isa = PBXGroup;
 			children = (
+				92EA463421A5AF4400A1820F /* FJMeController.m */,
 				92EA45A721A5AF4400A1820F /* FJMeController.h */,
 				92EA45A821A5AF4400A1820F /* controller */,
 				92EA460A21A5AF4400A1820F /* me_category */,
 				92EA461721A5AF4400A1820F /* view */,
 				92EA461D21A5AF4400A1820F /* me_base */,
-				92EA463421A5AF4400A1820F /* FJMeController.m */,
 			);
 			path = me;
 			sourceTree = "<group>";
@@ -1241,10 +1241,10 @@
 			children = (
 				92EA45CE21A5AF4400A1820F /* FJEditedFooterAddView.h */,
 				92EA45D721A5AF4400A1820F /* FJEditedFooterAddView.m */,
-				92EA45CF21A5AF4400A1820F /* FJEditedResumeHeaderView.m */,
-				92EA45D021A5AF4400A1820F /* FJEditedResumeController.m */,
-				92EA45E021A5AF4400A1820F /* FJEditedResumeController.h */,
 				92EA45E121A5AF4400A1820F /* FJEditedResumeHeaderView.h */,
+				92EA45CF21A5AF4400A1820F /* FJEditedResumeHeaderView.m */,
+				92EA45E021A5AF4400A1820F /* FJEditedResumeController.h */,
+				92EA45D021A5AF4400A1820F /* FJEditedResumeController.m */,
 				92EA45AA21A5AF4400A1820F /* edu */,
 				92EA45BE21A5AF4400A1820F /* career */,
 				92EA45D121A5AF4400A1820F /* project */,

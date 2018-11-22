@@ -30,7 +30,9 @@
     self.isGrouped = YES;
     [super viewDidLoad];
     self.navigationItem.title = @"编辑简历";
+    weakify(self)
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]bk_initWithTitle:@"预览" style:UIBarButtonItemStylePlain handler:^(id sender) {
+        strongify(self)
         FJResumePreviewController *controller = [[FJResumePreviewController alloc]init];
         [self.navigationController pushViewController:controller animated:YES];
     }];
@@ -53,16 +55,21 @@
 
 - (void)loadData
 {
-    [[FJUserWorkService instance] getResumeWithSuccessBlock:^(id data) {        self.user = data;
-
+    [[FJUserWorkService instance] getResumeWithSuccessBlock:^(id data) {
+        self.user = data;
         [self.tableView reloadData];
-    } failureBlock:nil];
+    } failureBlock:^(NSString *msg) {
+        
+    }];
 }
 
 - (void)requsetDataDictionary
 {
     [[FJUserWorkService instance]getDataDictionaryWithSuccessBlock:^(id data) {
-    } failureBlock:nil];
+        
+    } failureBlock:^(NSString *msg) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -118,7 +125,9 @@
 {
     FJEditedFooterAddView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass([FJEditedFooterAddView class])];
     view.title = self.array[section - 1];
+    weakify(self)
     view.addBlock = ^{
+        strongify(self)
         [self pushNextControllerWithIsAdd:YES indexPath:[NSIndexPath indexPathWithIndex:section]];
     };
     return view;
@@ -209,4 +218,5 @@
     }
     return _user;
 }
+
 @end

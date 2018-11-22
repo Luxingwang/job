@@ -137,9 +137,10 @@
         [self.contentView addSubview:_textField];
         _textField.textColor = [UIColor at_colorWithHex:0x9FA0A0];
         _textField.textAlignment = NSTextAlignmentRight;
-        @WeakSelf(self);
+        weakify(self)
         [_textField setBk_didEndEditingBlock:^(UITextField *textField) {
-            !weakSelf.textFieldBlock ?: weakSelf.textFieldBlock(textField.text);
+            strongify(self)
+            !self.textFieldBlock ?: self.textFieldBlock(textField.text);
         }];
         [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.offset(0);

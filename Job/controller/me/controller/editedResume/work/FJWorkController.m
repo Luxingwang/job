@@ -32,12 +32,16 @@
     [super viewDidLoad];
     self.title = @"工作经历";
     self.titleList = @[@[@"公司", @"职位", @"所属部门", @"入职时间", @"离职时间", @"工作内容", @"工作业绩"], @[@"对这家公司隐蔽我的信息"]];
+    weakify(self)
     [self addBottomButtonWithActionBlock:^{
+        strongify(self)
         // 完成Action
         [[FJUserWorkService instance]userWorkHandleWithUserwork:self.user successBlock:^(id data) {
             !self.callBack ?: self.callBack();
             [self.navigationController popViewControllerAnimated:YES];
-        } failureBlock:nil];
+        } failureBlock:^(NSString *msg) {
+            
+        }];
     }];
 }
 
@@ -68,7 +72,9 @@
     cell.arrow.hidden = indexPath.section;
     if (indexPath.section) {
         [cell.uiSwitch setOn:self.userWork.hasHide animated:YES];
+        weakify(self)
         [cell setSwitchBlock:^(BOOL isOn){
+            strongify(self)
             self.userWork.hasHide = isOn;
         }];
     }
@@ -77,9 +83,10 @@
             cell.textField.placeholder = !indexPath.row ? @"公司名称" : indexPath.row == 1 ? @"服务职位" : @"选填";
             NSString *key = !indexPath.row ? @"companyName" : indexPath.row == 1 ? @"postName" : @"department";
             cell.textField.text = [self.userWork valueForKey:key];
-            @WeakSelf(self);
+            weakify(self)
             cell.textFieldBlock = ^(NSString * _Nonnull text) {
-                [weakSelf.userWork setValue:text forKey:key];
+                strongify(self)
+                [self.userWork setValue:text forKey:key];
             };
         }
         else {
@@ -96,18 +103,23 @@
     if (indexPath.row > 2 && indexPath.row < 5) {
         SDJPastDatePicker *picker = [[SDJPastDatePicker alloc]initWithTitle:cell.title type:PastDatePickerTypeBirthday];
         [picker showView];
-        @WeakSelf(picker);
+        weakify(self)
+        weakify(picker)
         [picker setDoneBlock:^{
-            [self.userWork setValue:weakSelf.selectedDate forKey:indexPath.row == 3 ? @"beginDate" : @"endDate"];
-            [weakSelf hideView];
-            cell.detailLabel.text = [weakSelf.selectedDate fullDateString];
+            strongify(self)
+            strongify(picker)
+            [self.userWork setValue:picker.selectedDate forKey:indexPath.row == 3 ? @"beginDate" : @"endDate"];
+            [picker hideView];
+            cell.detailLabel.text = [picker.selectedDate fullDateString];
         }];
         return;
     }
     
     if (indexPath.row > 4) {
         NSString *placeholder = @[@"请简要描述您在该公司的工作内容", @"请详细描述您在该岗位上取得的工作业绩 \n例如： \n1.取得的业绩... \n2.实现的突破... \n3.获得的表彰..."][indexPath.row - 5];
+        weakify(self)
         [self.navigationController pushViewController:[[SDJTextViewController alloc]initWithTitle:cell.title placeholder:placeholder noTextTips:nil doneHandler:^(SDJTextViewController *textVC, NSString *text) {
+            strongify(self)
             cell.detailLabel.text = text;
             [self.userWork setValue:text forKey:indexPath.row - 5 == 0 ? @"workContent" : @"achievement"];
         }] animated:YES];

@@ -25,9 +25,6 @@
  构造
 
  @param frame frame description
- @param layout layout description
- @param vcType 类型
- @return return value description
  */
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout;
 

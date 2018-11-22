@@ -27,7 +27,7 @@ typedef NS_ENUM(NSUInteger, FJResumeCommondType){
 @interface FJUserWorkCommond : FJNetworkCommand
 
 @property (nonatomic, assign) FJResumeCommondType type;
-- (instancetype)initWithUser:(FJUser *__nonnull)user successBlock:(SUCCESS_BLOCK)successBlock errorBlock:(FAILURE_BLOCK)errorBlock;
+- (instancetype)initWithUser:(FJUser *__nullable)user successBlock:(SUCCESS_BLOCK)successBlock errorBlock:(FAILURE_BLOCK)errorBlock;
 @end
 
 NS_ASSUME_NONNULL_END

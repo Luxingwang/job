@@ -59,7 +59,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  添加教育经历
  
- @param userWork userWork description
  @param successBlock successBlock description
  @param errorBlock errorBlock description
  */
@@ -68,7 +67,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  添加项目经历
  
- @param userWork userWork description
  @param successBlock successBlock description
  @param errorBlock errorBlock description
  */

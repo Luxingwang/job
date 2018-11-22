@@ -16,7 +16,7 @@
 @property (nonatomic, strong) NSArray *responseArray;
 @end
 @implementation FJUserWorkCommond
-- (instancetype)initWithUser:(FJUser *__nonnull)user successBlock:(SUCCESS_BLOCK)successBlock errorBlock:(FAILURE_BLOCK)errorBlock
+- (instancetype)initWithUser:(FJUser *__nullable)user successBlock:(SUCCESS_BLOCK)successBlock errorBlock:(FAILURE_BLOCK)errorBlock
 {
     if (self = [super init]) {
         self.successBlock = successBlock;

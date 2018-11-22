@@ -38,15 +38,17 @@
     [super viewDidLoad];
     
     self.title = FormatString(@"%@教育经历", self.user.userEdu.eduId.length ? @"编辑" : @"添加");
-    
     self.titleList = @[@[@"学校", @"专业", @"学历", @"入学时间", @"毕业时间"], @[@"在校经历", @"荣誉证书"]];
-    
+    weakify(self)
     [self addBottomButtonWithActionBlock:^{
+        strongify(self)
         // 完成Action
         [[FJUserWorkService instance]userEduHandleWithUseredu:self.user successBlock:^(id data) {
             !self.callBack ?: self.callBack();
             [self.navigationController popViewControllerAnimated:YES];
-        } failureBlock:nil];
+        } failureBlock:^(NSString *msg) {
+            
+        }];
     }];
     
 }
@@ -80,7 +82,9 @@
         cell.textField.placeholder = !indexPath.row ? @"学校名称" : @"所学专业";
         NSString *key = !indexPath.row ? @"school" : @"profession";
         cell.textField.text = [self.userEdu valueForKey:key];
+        weakify(self)
         cell.textFieldBlock = ^(NSString * _Nonnull text) {
+            strongify(self)
             [self.userEdu setValue:text forKey:key];
         };
     }
@@ -104,12 +108,15 @@
     if (indexPath.row == 2) {
         SDJTypePicker *picker = [[SDJTypePicker alloc]initWithTitle:cell.title stringSource:self.educationArray];
         picker.selectedString = cell.detailLabel.text;
-        @WeakSelf(picker);
         [picker showView];
+        weakify(picker)
+        weakify(self)
         [picker setDoneBlock:^{
-            [weakSelf hideView];
-            cell.detailLabel.text = weakSelf.selectedString;
-            [self.userEdu setValue:weakSelf.selectedString forKey:@"education"];
+            strongify(self)
+            strongify(picker)
+            [picker hideView];
+            cell.detailLabel.text = picker.selectedString;
+            [self.userEdu setValue:picker.selectedString forKey:@"education"];
         }];
         return;
     }
@@ -117,11 +124,14 @@
     if (indexPath.row > 2 && indexPath.row < 5) {
         SDJPastDatePicker *picker = [[SDJPastDatePicker alloc]initWithTitle:cell.title type:PastDatePickerTypeBirthday];
         [picker showView];
-        @WeakSelf(picker);
+        weakify(picker)
+        weakify(self)
         [picker setDoneBlock:^{
-            [self.userEdu setValue:weakSelf.selectedDate forKey:indexPath.row == 3 ? @"beginDate" : @"endDate"];
-            [weakSelf hideView];
-            cell.detailLabel.text = [weakSelf.selectedDate fullDateString];
+            strongify(self)
+            strongify(picker)
+            [self.userEdu setValue:picker.selectedDate forKey:indexPath.row == 3 ? @"beginDate" : @"endDate"];
+            [picker hideView];
+            cell.detailLabel.text = [picker.selectedDate fullDateString];
         }];
         return;
     }
@@ -144,7 +154,6 @@
 - (void)setDataDictionary:(NSDictionary *)dataDictionary
 {
     _dataDictionary = dataDictionary;
-    
     // 学历
     self.eduList = dataDictionary[@"EDUCATION"];
 }

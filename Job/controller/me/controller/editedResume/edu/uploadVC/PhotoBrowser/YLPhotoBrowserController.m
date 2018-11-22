@@ -128,9 +128,9 @@
     CGFloat height = self.view.bounds.size.height;
     YLPhotoView *photoView = [[YLPhotoView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
     [photoView setPhoto:photo];
-//    @weakify(self);
+    weakify(self);
     photoView.enlargeBlock = ^void(YLPhotoView *view) {
-//        @strongify(self);
+        strongify(self);
         self.enlargePhotoView = view;
     };
     [self.scrollView addSubview:photoView];

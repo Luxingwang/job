@@ -15,7 +15,7 @@
  SDJTypePicker 构造方法
 
  @param title 标题
- @param typeStringSource 字符串数组源
+ @param stringSource 字符串数组源
  */
 - (instancetype)initWithTitle:(NSString *)title stringSource:(NSArray *)stringSource;
 

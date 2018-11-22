@@ -35,14 +35,17 @@
     self.title = @"项目经历";
     
     self.titleList = @[@"项目", @"角色", @"开始时间", @"结束时间", @"项目描述"];
-    
+    weakify(self)
     [self addBottomButtonWithActionBlock:^{
+        strongify(self)
         // 完成Action
         // todo://
         [[FJUserWorkService instance]userProjectHandleWithUserproject:self.user successBlock:^(id data) {
             !self.callBack ?: self.callBack();
             [self.navigationController popViewControllerAnimated:YES];
-        } failureBlock:nil];
+        } failureBlock:^(NSString *msg) {
+        
+        }];
     }];
 }
 
@@ -63,7 +66,9 @@
     if (indexPath.section < 2) {
         cell.textField.placeholder = !indexPath.section ? @"项目名称" : @"您在项目中的职位";
         cell.textField.text = [self.userProject valueForKey:!indexPath.section ? @"projectName" : @"roleName"];
+        weakify(self)
         cell.textFieldBlock = ^(NSString * _Nonnull text) {
+            strongify(self)
             [self.userProject setValue:text forKey:!indexPath.section ? @"projectName" : @"roleName"];
         };
     }
@@ -80,11 +85,14 @@
         if (indexPath.section == 2 || indexPath.section == 3) {
             SDJPastDatePicker *picker = [[SDJPastDatePicker alloc]initWithTitle:cell.title type:PastDatePickerTypeBirthday];
             [picker showView];
-            @WeakSelf(picker);
+            weakify(picker)
+            weakify(self)
             [picker setDoneBlock:^{
-                [self.userProject setValue:weakSelf.selectedDate forKey:indexPath.section == 2 ? @"beginDate" : @"endDate"];
-                [weakSelf hideView];
-                cell.detailLabel.text = [weakSelf.selectedDate fullDateString];
+                strongify(picker)
+                strongify(self)
+                [self.userProject setValue:picker.selectedDate forKey:indexPath.section == 2 ? @"beginDate" : @"endDate"];
+                [picker hideView];
+                cell.detailLabel.text = [picker.selectedDate fullDateString];
             }];
         }
         else {

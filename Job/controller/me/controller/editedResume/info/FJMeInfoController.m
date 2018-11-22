@@ -44,8 +44,9 @@
     self.isGrouped = YES;
     [super viewDidLoad];
     self.navigationItem.title = @"个人信息";
-    
+    weakify(self)
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]bk_initWithTitle:@"保存" style:UIBarButtonItemStylePlain handler:^(id sender) {
+        strongify(self)
         [self loadData];
     }];
     
@@ -119,7 +120,9 @@
         cell.textField.placeholder = @"请输入";
         NSString *key = indexPath.row == 1 ? @"realName" : @"phone";
         cell.textField.text = [self.user valueForKey:key];
+        weakify(self)
         cell.textFieldBlock = ^(NSString * _Nonnull text) {
+            strongify(self)
             [self.user setValue:text forKey:key];
         };
     }
@@ -158,17 +161,20 @@
         NSArray *array = indexPath.row == 2 ? @[@"男", @"女"] : self.educationArray;
         SDJTypePicker *picker = [[SDJTypePicker alloc]initWithTitle:cell.title stringSource:array];
         picker.selectedString = cell.detailLabel.text;
-        @WeakSelf(picker);
         [picker showView];
         __block NSString *value = @"";
+        weakify(self)
+        weakify(picker)
         [picker setDoneBlock:^{
-            [weakSelf hideView];
-            cell.detailLabel.text = weakSelf.selectedString;
+            strongify(self)
+            strongify(picker)
+            [picker hideView];
+            cell.detailLabel.text = picker.selectedString;
             if (indexPath.row == 2) {
-                value = [weakSelf.selectedString isEqualToString:@"男"] ? @"MALE" : @"FEMALE";
+                value = [picker.selectedString isEqualToString:@"男"] ? @"MALE" : @"FEMALE";
             }
             else {
-                value = weakSelf.selectedString;
+                value = picker.selectedString;
             }
             [self.user setValue:value forKey:indexPath.row == 2 ? @"sex" : @"education"];
         }];
@@ -178,12 +184,15 @@
     if (indexPath.row == 3 || indexPath.row == 5 || indexPath.row == 6 ) {
         SDJPastDatePicker *picker = [[SDJPastDatePicker alloc]initWithTitle:cell.title type:PastDatePickerTypeBirthday];
         [picker showView];
-        @WeakSelf(picker);
+        weakify(self)
+        weakify(picker)
         [picker setDoneBlock:^{
-            [weakSelf hideView];
-            cell.detailLabel.text = [weakSelf.selectedDate fullDateString];
+            strongify(self)
+            strongify(picker)
+            [picker hideView];
+            cell.detailLabel.text = [picker.selectedDate fullDateString];
             // todo:  birth
-            [self.user setValue:[weakSelf.selectedDate fullDateString] forKey:indexPath.row == 3 ? @"" : indexPath.row == 5 ? @"graduationTime" : @"firstWorkTime"];
+            [self.user setValue:[picker.selectedDate fullDateString] forKey:indexPath.row == 3 ? @"" : indexPath.row == 5 ? @"graduationTime" : @"firstWorkTime"];
         }];
     }
     
@@ -207,15 +216,17 @@
 {
     if (!_imagePickerController) {
         _imagePickerController = [[UIImagePickerController alloc]init];
-        @WeakSelf(self);
+        weakify(self)
         [_imagePickerController setBk_didFinishPickingMediaBlock:^(UIImagePickerController *imagePickerController,  NSDictionary *info) {
+            strongify(self)
             //获取图片
             UIImage *image = info[UIImagePickerControllerOriginalImage];
-            [weakSelf dismissViewControllerAnimated:YES completion:nil];
-            weakSelf.logoCell.iconImageView.image = image;
+            [self dismissViewControllerAnimated:YES completion:nil];
+            self.logoCell.iconImageView.image = image;
         }];
         [_imagePickerController setBk_didCancelBlock:^(UIImagePickerController *picker) {
-            [weakSelf dismissViewControllerAnimated:YES completion:nil];
+            strongify(self)
+            [self dismissViewControllerAnimated:YES completion:nil];
         }];
     }
     return _imagePickerController;
