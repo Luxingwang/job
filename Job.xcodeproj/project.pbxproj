@@ -1226,8 +1226,8 @@
 		92EA45A621A5AF4400A1820F /* me */ = {
 			isa = PBXGroup;
 			children = (
-				92EA463421A5AF4400A1820F /* FJMeController.m */,
 				92EA45A721A5AF4400A1820F /* FJMeController.h */,
+				92EA463421A5AF4400A1820F /* FJMeController.m */,
 				92EA45A821A5AF4400A1820F /* controller */,
 				92EA460A21A5AF4400A1820F /* me_category */,
 				92EA461721A5AF4400A1820F /* view */,
@@ -1696,7 +1696,7 @@
 				TargetAttributes = {
 					2A486EA9213F6C4200AB4E64 = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					2A486EC1213F6C4200AB4E64 = {
 						CreatedOnToolsVersion = 9.2;
@@ -2144,10 +2144,10 @@
 			baseConfigurationReference = 13A19E31A0427D47C00B4EBC /* Pods-Job.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: 兴旺 卢 (4W7CGWVK4F)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 兴旺 卢 (4W7CGWVK4F)";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = HHH85LCW4M;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Job/FJ.pch";
 				INFOPLIST_FILE = Job/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -2155,7 +2155,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.avatar.ESCenter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "1f2b63cd-ce88-4058-9a0c-02e2b956157b";
-				PROVISIONING_PROFILE_SPECIFIER = ESCenter_dev;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2165,8 +2165,8 @@
 			baseConfigurationReference = DB8E8AC6976A4D18C69CF5E2 /* Pods-Job.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Hangzhou Mintcode Co., Ltd.";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Job/FJ.pch";
 				INFOPLIST_FILE = Job/Info.plist;

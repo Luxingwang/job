@@ -80,7 +80,7 @@
 {
     if (!_iconImageView) {
         _iconImageView = [FilletImageView roundImageView];
-        _iconImageView.backgroundColor = [UIColor redColor];
+//        _iconImageView.backgroundColor = [UIColor redColor];
     }
     return _iconImageView;
 }
@@ -145,6 +145,7 @@
         [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.offset(0);
             make.right.equalTo(self.arrow.mas_left).offset(-10);
+            make.width.mas_equalTo(200);
         }];
     }
     return _textField;

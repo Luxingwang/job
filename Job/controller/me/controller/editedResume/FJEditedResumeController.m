@@ -36,7 +36,8 @@
         FJResumePreviewController *controller = [[FJResumePreviewController alloc]init];
         [self.navigationController pushViewController:controller animated:YES];
     }];
-    
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+
     [self setupTableView];
     [self loadData];
     [self requsetDataDictionary];
@@ -125,6 +126,9 @@
 {
     FJEditedFooterAddView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass([FJEditedFooterAddView class])];
     view.title = self.array[section - 1];
+    NSString *keyPath = section == 1 ? @"_user.educationList" : section == 2 ? @"_user.companyList" : @"_user.projectList";
+    NSArray *array = [self valueForKeyPath:keyPath];
+    view.bottomLine.hidden = !array.count;
     weakify(self)
     view.addBlock = ^{
         strongify(self)
@@ -143,7 +147,7 @@
             {
                 cell.title = @"";
                 cell.detailLabel.text = @"编辑个人信息";
-                [cell.iconImageView sd_setImageWithURL:nil placeholderImage:nil];
+                [cell.iconImageView sd_setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"me_icon_avater"]];
             }
                 break;
                 case 1:

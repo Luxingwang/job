@@ -31,7 +31,7 @@
 }
 
 -(void)setUpCell{
-    self.backgroundColor = [UIColor greenColor];
+    self.backgroundColor = [UIColor at_colorWithHex:0x2fa7e0];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
@@ -77,7 +77,7 @@
         make.height.mas_equalTo(74);
         make.width.mas_equalTo(self.mas_width).dividedBy(3.0).offset(-2/3.0);
     }];
-    self.deliveredLabel.backgroundColor = [UIColor redColor];
+    self.deliveredLabel.backgroundColor = [UIColor at_colorWithHex:0x2fa7e0];
     [self.dividedLinev1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(36);
         make.width.mas_equalTo(1);
@@ -89,7 +89,7 @@
         make.left.mas_equalTo(self.dividedLinev1.mas_right);
         make.bottom.width.height.mas_equalTo(self.deliveredLabel);
     }];
-    self.exchangedLabel.backgroundColor = [UIColor redColor];
+    self.exchangedLabel.backgroundColor = [UIColor at_colorWithHex:0x2fa7e0];
     [self.dividedLinev2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.exchangedLabel.mas_right);
         make.width.height.centerY.mas_equalTo(self.dividedLinev1);
@@ -99,7 +99,7 @@
         make.left.mas_equalTo(self.dividedLinev2.mas_right);
         make.bottom.width.height.mas_equalTo(self.exchangedLabel);
     }];
-    self.terviewedLabel.backgroundColor = [UIColor redColor];
+    self.terviewedLabel.backgroundColor = [UIColor at_colorWithHex:0x2fa7e0];
 }
 #pragma mark
 -(void)deliveredLabelClicked:(UITapGestureRecognizer*)gesture{
@@ -117,8 +117,13 @@
 - (void)setUser:(FJUser *)user
 {
     _user = user;
-    [self.profileImgv sd_setImageWithURL:nil placeholderImage:nil];
+    [self.profileImgv sd_setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"me_icon_avater"]];
     self.userNameLabel.text = user.realName;
+    
+    self.deliveredLabel.text = @"10 \n已投递";
+    self.exchangedLabel.text = @"10 \n已交流";
+    self.terviewedLabel.text = @"10 \n面试";
+
 }
 
 #pragma mark
@@ -159,7 +164,10 @@
 -(UILabel*)deliveredLabel{
     if (!_deliveredLabel) {
         _deliveredLabel = [[UILabel alloc] init];
+        _deliveredLabel.textColor = [UIColor whiteColor];
         _deliveredLabel.userInteractionEnabled = YES;
+        _deliveredLabel.numberOfLines = 2;
+        _deliveredLabel.textAlignment = NSTextAlignmentCenter;
         [_deliveredLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(deliveredLabelClicked:)]];
     }
     return _deliveredLabel;
@@ -167,7 +175,10 @@
 -(UILabel*)exchangedLabel{
     if (!_exchangedLabel) {
         _exchangedLabel = [[UILabel alloc] init];
+        _exchangedLabel.textColor = [UIColor whiteColor];
         _exchangedLabel.userInteractionEnabled = YES;
+        _exchangedLabel.numberOfLines = 2;
+        _exchangedLabel.textAlignment = NSTextAlignmentCenter;
          [_exchangedLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(exchangedLabelClicked:)]];
     }
     return _exchangedLabel;
@@ -175,7 +186,10 @@
 -(UILabel*)terviewedLabel{
     if (!_terviewedLabel) {
         _terviewedLabel = [[UILabel alloc] init];
+        _terviewedLabel.textColor = [UIColor whiteColor];
         _terviewedLabel.userInteractionEnabled = YES;
+        _terviewedLabel.numberOfLines = 2;
+        _terviewedLabel.textAlignment = NSTextAlignmentCenter;
          [_terviewedLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(terviewedLabelClicked:)]];
     }
     return _terviewedLabel;

@@ -29,6 +29,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor at_colorWithHex:0xf4f4f4];
+    
     [self setUpSubViews];
     [self initConstraints];
     

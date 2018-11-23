@@ -27,6 +27,7 @@
             make.center.offset(0);
         }];
         self.contentView.backgroundColor = [UIColor whiteColor];
+        self.bottomLine = [self addSeparatorWithType:SeparatorTypeTopFill];
     }
     return self;
 }

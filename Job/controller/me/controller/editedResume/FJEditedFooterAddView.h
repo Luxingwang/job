@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FJEditedFooterAddView : UITableViewHeaderFooterView
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) UIView *bottomLine;
 @property (nonatomic, copy) void (^addBlock)(void);
 @end
 

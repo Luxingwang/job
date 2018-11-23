@@ -49,6 +49,7 @@
         strongify(self)
         [self loadData];
     }];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
     
     [self setupTableView];
 }
@@ -110,7 +111,7 @@
 {
     // 头像
     if (!indexPath.row) {
-        self.logoCell.backgroundColor = [UIColor redColor];
+        [self.logoCell.iconImageView sd_setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"me_icon_avater"]];
         return self.logoCell;
     }
     TitleArrowCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TitleArrowCell class])];
