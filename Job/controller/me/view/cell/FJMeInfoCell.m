@@ -114,6 +114,13 @@
     [self.delegate didSelectMeInterviewedAtCell:self];
 }
 
+- (void)setUser:(FJUser *)user
+{
+    _user = user;
+    [self.profileImgv sd_setImageWithURL:nil placeholderImage:nil];
+    self.userNameLabel.text = user.realName;
+}
+
 #pragma mark
 -(UIImageView*)profileImgv{
     if (!_profileImgv) {

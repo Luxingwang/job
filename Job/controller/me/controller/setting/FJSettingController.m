@@ -9,11 +9,22 @@
 #import "FJSettingController.h"
 #import "FJMessageSetupController.h"
 #import "TitleArrowCell.h"
+#import "FJUser.h"
 
 @interface FJSettingController ()
+@property (nonatomic, strong) FJUser *user;
+
 @end
 
 @implementation FJSettingController
+
+- (instancetype)initWithUser:(FJUser *)user
+{
+    if (self = [super init]) {
+        self.user = user;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     self.isGrouped = YES;
@@ -92,7 +103,7 @@
                 if (indexPath.row == 1) {
                     // todo:
                     SuppressPerformSelectorLeakWarning (
-                    [self.navigationController pushViewController:[[class alloc]performSelector:sel withObject:@""] animated:YES];
+                    [self.navigationController pushViewController:[[class alloc]performSelector:sel withObject:self.user.phone] animated:YES];
                     );
                 }
                 else {

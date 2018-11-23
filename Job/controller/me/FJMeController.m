@@ -17,10 +17,12 @@
 #import "FJAttachmentController.h"
 #import "FJInterviewedController.h"
 #import "FJEditedResumeController.h"
+#import "FJUserWorkService.h"
 
 @interface FJMeController ()<UITableViewDelegate,UITableViewDataSource,FJMeInfoCellDelegate>
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSArray *entranceInfoList;
+@property (nonatomic, strong) FJUser *user;
 @end
 
 @implementation FJMeController
@@ -29,15 +31,30 @@
     [super viewDidLoad];
     [self setUpSubViews];
     [self initConstraints];
+    
+    [self loadData];
 }
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
+- (void)loadData
+{
+    [[FJUserWorkService instance] getResumeWithSuccessBlock:^(id data) {
+        self.user = data;
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+    } failureBlock:^(NSString *msg) {
+        
+    }];
+}
+
 #pragma mark
 -(void)setUpSubViews{
     [self.view addSubview:self.tableView];
@@ -62,6 +79,7 @@
     if (indexPath.section==0) {
         FJMeInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:[FJMeInfoCell cellId] forIndexPath:indexPath];
         cell.delegate = self;
+        cell.user = self.user;
         return cell;
     }
     FJMeEntranceCell *cell = [tableView dequeueReusableCellWithIdentifier:[FJMeEntranceCell cellId] forIndexPath:indexPath];
@@ -100,7 +118,7 @@
             [self.navigationController pushViewController:controller animated:YES];
         }else if (indexPath.row==2)
         {
-            FJSettingController *controller = [[FJSettingController alloc] init];
+            FJSettingController *controller = [[FJSettingController alloc] initWithUser:self.user];
             [self.navigationController pushViewController:controller animated:YES];
         }
     }

@@ -32,10 +32,12 @@
             make.height.mas_equalTo(40);
             make.top.offset(38 + index * 60 );
         }];
-        [textField setBk_didEndEditingBlock:^(UITextField *textField) {
-            
-        }];
-        [textField addSeparatorWithType:SeparatorTypeBottomFill];
+//        [textField setBk_didEndEditingBlock:^(UITextField *textField) {
+//
+//        }];
+        [textField addSeparatorWithType:SeparatorTypeBottomFill heightOrWidth:2];
+        textField.keyboardType = UIKeyboardTypeASCIICapable;
+        [textField addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventEditingChanged];
     }];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -53,5 +55,9 @@
     }];
 }
 
+- (void)valueChanged:(UITextField *)textField
+{
+    
+}
 
 @end

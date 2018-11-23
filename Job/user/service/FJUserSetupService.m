@@ -22,14 +22,18 @@
 
 - (void)getPhoneCodeWithPhone:(NSString *)phone successBlock:(SUCCESS_BLOCK)successBlock failureBlock:(FAILURE_BLOCK)errorBlock
 {
-    FJUserSetupCommond *userWorkCommond = [[FJUserSetupCommond alloc] init];
-    userWorkCommond.type = FJUserSetupCommondTypeEditPhone;
+    FJUserSetupCommond *userWorkCommond = [[FJUserSetupCommond alloc] initWithParams:@{@"phone" : phone} successBlock:successBlock errorBlock:errorBlock];
+    userWorkCommond.type = FJUserSetupCommondTypeGetPhoneCode;
     [userWorkCommond execute];
 }
 
-- (void)editPhoneWithPhone:(NSString *)phone password:(NSString *)password successBlock:(SUCCESS_BLOCK)successBlock failureBlock:(FAILURE_BLOCK)errorBlock
+- (void)editPhoneWithPhone:(NSString *)phone code:(NSString *)code successBlock:(SUCCESS_BLOCK)successBlock failureBlock:(FAILURE_BLOCK)errorBlock
 {
-    FJUserSetupCommond *userWorkCommond = [[FJUserSetupCommond alloc] init];
+    FJUserSetupCommond *userWorkCommond = [[FJUserSetupCommond alloc] initWithParams:
+                                                                    @{@"phone" : phone,
+                                                                      @"code" : code,
+                                                                      @"userId" : @(1)
+                                                                      } successBlock:successBlock errorBlock:errorBlock];
     userWorkCommond.type = FJUserSetupCommondTypeEditPhone;
     [userWorkCommond execute];
 }

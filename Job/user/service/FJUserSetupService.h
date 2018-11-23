@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param successBlock successBlock description
  @param errorBlock errorBlock description
  */
-- (void)editPhoneWithPhone:(NSString *)phone password:(NSString *)password successBlock:(SUCCESS_BLOCK)successBlock failureBlock:(FAILURE_BLOCK)errorBlock;
+- (void)editPhoneWithPhone:(NSString *)phone code:(NSString *)code successBlock:(SUCCESS_BLOCK)successBlock failureBlock:(FAILURE_BLOCK)errorBlock;
 
 /**
  设置手机号获取验证码

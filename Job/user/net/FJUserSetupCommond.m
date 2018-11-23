@@ -32,6 +32,11 @@
     );
 }
 
+- (void)errorHandle:(NSString*)msg{
+
+    
+}
+
 - (void)successHandle:(id)data
 {
     NSLog(@"%@", [data mj_JSONString]);
@@ -43,22 +48,22 @@
 
 - (void)editPhone
 {
-    [self sendRequestWithUrl:URLForge(@"/user/bindPhone") method:POST parameter:nil];
+    [self sendRequestWithUrl:URLForge(@"/user/bindPhone") method:POST parameter:self.params];
 }
 
 - (void)editPhoneResponse:(id)data
 {
-    self.successBlock([FJUser mj_objectWithKeyValues:data]);
+    self.successBlock(nil);
 }
 
 - (void)getPhoneCode
 {
-    [self sendRequestWithUrl:URLForge(@"/user/getCode") method:POST parameter:nil];
+    [self sendRequestWithUrl:URLForge(@"/user/getCode") method:POST parameter:self.params];
 }
 
 - (void)getPhoneCodeResponse:(id)data
 {
-    self.successBlock([FJUser mj_objectWithKeyValues:data]);
+    self.successBlock(nil);
 }
 
 - (void)editPassword

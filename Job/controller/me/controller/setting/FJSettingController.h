@@ -7,7 +7,7 @@
 //
 
 #import "BaseTableController.h"
-
+@class FJUser;
 @interface FJSettingController : BaseTableController
-
+- (instancetype)initWithUser:(FJUser *)user;
 @end
