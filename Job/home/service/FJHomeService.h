@@ -19,7 +19,7 @@
  获取首页推荐工作列表
  @param page 页码
  */
--(void)fetchRecommendJobListAtPage:(NSInteger)page successBlock:(SUCCESS_BLOCK)successBlock failureBlock:(FAILURE_BLOCK)errorBlock;
+-(void)fetchRecommendJobListAtPage:(NSInteger)page successBlock:(PAGE_SUCCESS_BLOCK)successBlock failureBlock:(FAILURE_BLOCK)errorBlock;
 /**
  获取资讯列表
  */

@@ -25,6 +25,6 @@
 -(void)successHandle:(id)data
 {
     NSMutableArray *jobs = [FJJob arrayFrom:data];
-    self.successBlock(jobs);
+    self.pageSuccessBlock(jobs,jobs.count?NO:YES);
 }
 @end

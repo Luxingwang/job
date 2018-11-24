@@ -30,7 +30,6 @@
     [self addSubview:self.companyNameScaleLabel];
     [self addSubview:self.jobNameLabel];
     [self addSubview:self.coverImgv];
-    self.coverImgv.backgroundColor = [UIColor greenColor];
 }
 
 -(void)initConstraints{
@@ -50,7 +49,7 @@
     }];
     [self.coverImgv mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.mas_equalTo(self);
-        make.bottom.mas_equalTo(self.jobNameLabel.mas_top).offset(-2);
+        make.bottom.mas_equalTo(self.jobNameLabel.mas_top);
     }];
 }
 
@@ -69,6 +68,8 @@
 -(UIImageView*)coverImgv{
     if (!_coverImgv) {
         _coverImgv = [[UIImageView alloc] init];
+        _coverImgv.layer.masksToBounds = YES;
+        _coverImgv.contentMode = UIViewContentModeScaleAspectFill;
     }
     return _coverImgv;
 }
@@ -77,18 +78,15 @@
     if (!_incomeLevelLabel) {
         _incomeLevelLabel = [[UILabel alloc] init];
         _incomeLevelLabel.font = [UIFont systemFontOfSize:14];
-        _incomeLevelLabel.textAlignment = NSTextAlignmentCenter;
         _incomeLevelLabel.textColor = [UIColor at_colorWithHex:0xEA5514];
     }
     return _incomeLevelLabel;
 }
 
-
 -(UILabel*)jobNameLabel{
     if (!_jobNameLabel) {
         _jobNameLabel = [[UILabel alloc] init];
         _jobNameLabel.font = [UIFont systemFontOfSize:14];
-        _jobNameLabel.textAlignment = NSTextAlignmentCenter;
         _jobNameLabel.textColor = [UIColor at_colorWithHex:0xE3A39];
     }
     return _jobNameLabel;
@@ -98,7 +96,7 @@
     if (!_companyNameScaleLabel) {
         _companyNameScaleLabel = [[UILabel alloc] init];
         _companyNameScaleLabel.font = [UIFont systemFontOfSize:14];
-        _companyNameScaleLabel.textAlignment = NSTextAlignmentCenter;
+        _companyNameScaleLabel.adjustsFontSizeToFitWidth = YES;
         _companyNameScaleLabel.textColor = [UIColor at_colorWithHex:0x727171];
     }
     return _companyNameScaleLabel;

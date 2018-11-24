@@ -29,12 +29,12 @@
     [command execute];
 }
 
--(void)fetchRecommendJobListAtPage:(NSInteger)page successBlock:(SUCCESS_BLOCK)successBlock failureBlock:(FAILURE_BLOCK)errorBlock
+-(void)fetchRecommendJobListAtPage:(NSInteger)page successBlock:(PAGE_SUCCESS_BLOCK)successBlock failureBlock:(FAILURE_BLOCK)errorBlock
 {
     FJRecommendJobsCommand *command = [[FJRecommendJobsCommand alloc] init];
     command.page = page;
     command.errorBlock = errorBlock;
-    command.successBlock = successBlock;
+    command.pageSuccessBlock  = successBlock;
     [command execute];
 }
 

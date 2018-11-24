@@ -21,7 +21,7 @@
     [super viewDidLoad];
     [self setUpMJRefresh];
     [self fetchDynamicsList];
-    [self fetchRecommendJobList];
+    [self mjPull];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,6 +35,7 @@
 #pragma mark
 -(void)mjPull
 {
+    ++self.page;
     [self fetchRecommendJobList];
 }
 
@@ -49,15 +50,12 @@
 
 -(void)fetchRecommendJobList
 {
-    [[FJService instance].homeService fetchRecommendJobListAtPage:self.page successBlock:^(NSMutableArray *recommendJobList) {
-        if (recommendJobList.count) {
-            self.page = self.page+1;
+    [[FJService instance].homeService fetchRecommendJobListAtPage:self.page successBlock:^(NSArray *recommendJobList, BOOL allFetch) {
+        if (allFetch == YES){
+            [self.collectionView.mj_footer endRefreshingWithNoMoreData];
+        }else{
             [self.collectionView.mj_footer endRefreshing];
             [self.recommendJobList addObjectsFromArray:recommendJobList];
-        }
-        else
-        {
-            [self.collectionView.mj_footer endRefreshingWithNoMoreData];
         }
         [self.collectionView reloadData];
     } failureBlock:^(NSString *msg) {
