@@ -87,7 +87,7 @@
     else if (section==2)
     {
         FJHomeDynamicsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[FJHomeDynamicsCell cellId] forIndexPath:indexPath];
-        cell.backgroundColor = [UIColor redColor];
+        cell.dynamicsList = self.dynamicsList;
         return cell;
     }
     FJHomeRecommendJobCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[FJHomeRecommendJobCell cellId] forIndexPath:indexPath];

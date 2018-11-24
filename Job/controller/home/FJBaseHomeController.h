@@ -10,6 +10,7 @@
 
 @interface FJBaseHomeController : FJBaseController
 @property (nonatomic,weak)   NSArray *entranceItems;
+@property (nonatomic,strong) NSMutableArray *dynamicsList;
 @property (nonatomic,strong) NSMutableArray *recommendJobList;
 @property (nonatomic,strong) UICollectionView *collectionView;
 @end

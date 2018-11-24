@@ -15,6 +15,7 @@
 
 @implementation FJHomeController
 @synthesize entranceItems    = _entranceItems;
+@synthesize dynamicsList     = _dynamicsList;
 @synthesize recommendJobList = _recommendJobList;
 
 - (void)viewDidLoad {
@@ -41,10 +42,14 @@
 
 -(void)fetchDynamicsList
 {
-    [[FJService instance].homeService fetchDynamicsListSuccessBlock:^(id data) {
-        
+    [[FJService instance].homeService fetchDynamicsListSuccessBlock:^(NSArray *dynamicsList) {
+        if (dynamicsList.count) {
+            [self.dynamicsList removeAllObjects];
+        }
+        [self.dynamicsList addObjectsFromArray:dynamicsList];
+        [self.collectionView reloadData];
     } failureBlock:^(NSString *msg) {
-        
+        [self.view at_postMessage:msg];
     }];
 }
 
@@ -66,6 +71,13 @@
 -(NSArray*)entranceItems
 {
     return [FJService instance].homeService.entranceItems;
+}
+
+-(NSMutableArray*)dynamicsList{
+    if (!_dynamicsList) {
+        _dynamicsList = [NSMutableArray array];
+    }
+    return _dynamicsList;
 }
 
 -(NSMutableArray*)recommendJobList{
