@@ -33,6 +33,11 @@
      );
 }
 
+- (void)errorHandle:(NSString *)msg
+{
+    
+}
+
 - (void)successHandle:(id)data
 {
     NSLog(@"%@", [data mj_JSONString]);
@@ -53,14 +58,21 @@
 
 - (void)editedUserInfo
 {
-    NSMutableDictionary *mutableParams = [NSMutableDictionary dictionaryWithDictionary:self.user.mj_keyValues];
-    mutableParams[@"graduationTime"] = self.user.graduationTimeString;
-    mutableParams[@"firstWorkTime"] = self.user.firstWorkTimeString;
-    // 移除
-    [mutableParams removeObjectForKey:@"isLogin"];
-    [mutableParams removeObjectForKey:@"companyList"];
-    [mutableParams removeObjectForKey:@"projectList"];
-    [mutableParams removeObjectForKey:@"educationList"];
+    NSMutableDictionary *mutableParams = [NSMutableDictionary dictionary];
+    [@[@"realName", @"sex", @"birthday", @"education", @"graduationTime", @"firstWorkTime", @"phone", @"description"]bk_each:^(NSString *obj) {
+        if ([obj isEqual:@"graduationTime"]) {
+            mutableParams[@"graduationTime"] = self.user.graduationTimeString;
+        }
+        else if ([obj isEqual:@"firstWorkTime"]) {
+            mutableParams[@"firstWorkTime"] = self.user.firstWorkTimeString;
+        }
+        else if ([obj isEqual:@"description"]) {
+            mutableParams[@"description"] = self.user.des;
+        }
+        else {
+            [mutableParams setValue:self.user.mj_keyValues[obj] forKey:obj];
+        }
+    }];
 
     self.user.userId = @"1";
     mutableParams[@"userId"] = self.user.userId;

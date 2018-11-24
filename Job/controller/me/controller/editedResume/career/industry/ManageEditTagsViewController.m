@@ -51,6 +51,7 @@
             [self.navigationController popViewControllerAnimated:YES];
         }
     }];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
 }
 
 - (void)loadData

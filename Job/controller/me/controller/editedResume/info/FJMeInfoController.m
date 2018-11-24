@@ -64,6 +64,11 @@
     self.tableView.sectionHeaderHeight = CGFLOAT_MIN;
     
     SDJTextView *textView = [[SDJTextView alloc]init];
+    textView.textColor = [UIColor at_colorWithHex:0x9FA0A0];
+    [textView setTextEditingChangeBlock:^(NSString *text) {
+        self.user.des = text;
+    }];
+    textView.text = self.user.des;
     textView.placeholder = @"一句话描述自己";
     textView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 115);
     self.tableView.tableFooterView = textView;
@@ -128,7 +133,7 @@
         };
     }
     else {
-        NSString *key = indexPath.row == 2 ? @"sex" : indexPath.row == 3 ? @"phone" : indexPath.row == 4 ? @"education" : indexPath.row == 5 ? @"graduationTimeString" : indexPath.row == 6 ? @"firstWorkTimeString" : @"phone";
+        NSString *key = indexPath.row == 2 ? @"sex" : indexPath.row == 3 ? @"birthday" : indexPath.row == 4 ? @"education" : indexPath.row == 5 ? @"graduationTimeString" : indexPath.row == 6 ? @"firstWorkTimeString" : @"phone";
         if (indexPath.row == 2) {
             cell.detailLabel.text = [[self.user valueForKey:key] isEqual:@"FEMALE"] ? @"女" : @"男";
         }
@@ -192,8 +197,7 @@
             strongify(picker)
             [picker hideView];
             cell.detailLabel.text = [picker.selectedDate fullDateString];
-            // todo:  birth
-            [self.user setValue:[picker.selectedDate fullDateString] forKey:indexPath.row == 3 ? @"" : indexPath.row == 5 ? @"graduationTime" : @"firstWorkTime"];
+            [self.user setValue:[picker.selectedDate fullDateString] forKey:indexPath.row == 3 ? @"birthday" : indexPath.row == 5 ? @"graduationTime" : @"firstWorkTime"];
         }];
     }
     

@@ -33,6 +33,7 @@
     weakify(self)
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]bk_initWithTitle:@"预览" style:UIBarButtonItemStylePlain handler:^(id sender) {
         strongify(self)
+        return ;
         FJResumePreviewController *controller = [[FJResumePreviewController alloc]init];
         [self.navigationController pushViewController:controller animated:YES];
     }];

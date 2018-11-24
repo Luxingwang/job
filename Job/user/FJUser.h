@@ -191,6 +191,11 @@ typedef NS_ENUM(NSUInteger, UserInitType){
 @property (nonatomic, strong) NSString *sex;
 
 /**
+ 出生年月
+ */
+@property (nonatomic, strong) NSString *birthday;
+
+/**
  学校
  */
 @property (nonatomic, strong) NSString *school;
@@ -224,6 +229,11 @@ typedef NS_ENUM(NSUInteger, UserInitType){
  首次工作日期{YYYY-MM-DD}
  */
 @property (nonatomic, strong) NSString *firstWorkTimeString;
+
+/**
+ 简介
+ */
+@property (nonatomic, strong) NSString *des;
 
 
 //========================= 创建 ============================
