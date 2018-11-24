@@ -81,7 +81,6 @@
     if (!_coverImgv) {
         _coverImgv = [[UIImageView alloc] init];
         _coverImgv.contentMode = UIViewContentModeScaleAspectFit;
-        _coverImgv.backgroundColor = [UIColor greenColor];
     }
     return _coverImgv;
 }

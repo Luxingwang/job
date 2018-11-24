@@ -9,5 +9,6 @@
 #import "FJBaseController.h"
 
 @interface FJInfomationDetailController : FJBaseController
-@property (nonatomic,strong) NSString *infoId;
+@property (nonatomic,copy) NSString *infoId;
+@property (nonatomic,copy) NSString *infoTitle;
 @end

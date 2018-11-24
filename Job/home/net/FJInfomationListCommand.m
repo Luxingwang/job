@@ -9,6 +9,7 @@
 #import "FJInfomationListCommand.h"
 
 @implementation FJInfomationListCommand
+
 -(NSString*)networkUrl
 {
     if (self.listType==InfomationListTypeStory) {
@@ -19,13 +20,17 @@
 
 -(void)execute
 {
-    [self sendRequestWithUrl:self.networkUrl method:POST];
+    NSDictionary *params = @{@"pageNo":@(self.page)};
+    [self sendRequestWithUrl:self.networkUrl method:POST parameter:params];
 }
 
 -(void)successHandle:(id)data
 {
     NSArray *list = [data objectForKey:@"list"];
     NSMutableArray *storyList = [FJInfomationLite arrayFrom:list];
-    self.successBlock(storyList);
+    NSDictionary *pageInfo = [data objectForKey:@"page"];
+    NSInteger totalPage = [[pageInfo objectForKey:@"totalPages"] integerValue];
+    BOOL allFetch = self.page == totalPage?YES:NO;
+    self.pageSuccessBlock(storyList,allFetch);
 }
 @end

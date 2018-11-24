@@ -16,10 +16,12 @@ typedef enum REQUEST_TYPE{
     DELETE =3
 }REQUEST_TYPE;
 typedef void (^SUCCESS_BLOCK)(id data);
+typedef void (^PAGE_SUCCESS_BLOCK)(id data,BOOL allFetch);
 typedef void (^FAILURE_BLOCK)(NSString* msg);
 @property (nonatomic,copy) NSString *networkUrl;
 @property (nonatomic,copy) FAILURE_BLOCK errorBlock;
 @property (nonatomic,copy) SUCCESS_BLOCK successBlock;
+@property (nonatomic,copy) PAGE_SUCCESS_BLOCK pageSuccessBlock;
 
 -(AFHTTPSessionManager*)networkEngine;
 

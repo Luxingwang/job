@@ -23,7 +23,7 @@
 /**
  获取资讯列表
  */
--(void)fetchInfomationListAtpage:(NSInteger)page listType:(InfomationListType)type successBlock:(SUCCESS_BLOCK)successBlock failureBlock:(FAILURE_BLOCK)errorBlock;
+-(void)fetchInfomationListAtpage:(NSInteger)page listType:(InfomationListType)type successBlock:(PAGE_SUCCESS_BLOCK)successBlock failureBlock:(FAILURE_BLOCK)errorBlock;
 /**
  获取优秀生直通车
  @param size 页码

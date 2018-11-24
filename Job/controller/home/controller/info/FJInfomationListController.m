@@ -8,11 +8,13 @@
 
 #import <Masonry.h>
 #import "FJService.h"
+#import "MJRefresh.h"
 #import "UIView+Extension.h"
 #import "FJInfomationListCell.h"
 #import "FJInfomationListController.h"
 #import "FJInfomationDetailController.h"
 @interface FJInfomationListController ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic,assign) NSInteger page;
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *infoLiteList;
 @end
@@ -23,7 +25,7 @@
     [super viewDidLoad];
     [self setUpSubviews];
     [self initConstraints];
-    [self fetchStoryList];
+    [self setUpMjRefresh];
     self.navigationItem.title = self.listType==InfomationListTypeStory?@"滨江故事":@"企业动态";
 }
 
@@ -39,14 +41,42 @@
         make.edges.mas_equalTo(self.view);
     }];
 }
+
+-(void)setUpMjRefresh
+{
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(mjDrop)];
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(mjPull)];
+    [self.tableView.mj_header beginRefreshing];
+}
+
+-(void)mjDrop
+{
+    self.page = 1;
+    [self fetchStoryList];
+}
+
+-(void)mjPull
+{
+    ++self.page;
+    [self fetchStoryList];
+}
+
 #pragma mark
 -(void)fetchStoryList{
-    [self.view at_postLoading];
-    [[FJService instance].homeService fetchInfomationListAtpage:0 listType:self.listType successBlock:^(NSArray* infoLiteList) {
-        [self.view at_hideLoading];
+    [[FJService instance].homeService fetchInfomationListAtpage:self.page listType:self.listType successBlock:^(NSArray* infoLiteList, BOOL allFetch) {
+        if (self.page==1) {
+            [self.infoLiteList removeAllObjects];
+        }
         if (infoLiteList.count) {
             [self.infoLiteList addObjectsFromArray:infoLiteList];
             [self.tableView reloadData];
+        }
+        [self.tableView.mj_header endRefreshing];
+        if (allFetch==YES){
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+        }else
+        {
+            [self.tableView.mj_footer endRefreshing];
         }
     } failureBlock:^(NSString *msg) {
         [self.view at_postMessage:msg];
@@ -76,6 +106,7 @@
     FJInfomationLite *infoLite = self.infoLiteList[indexPath.row];
     FJInfomationDetailController *controller = [[FJInfomationDetailController alloc] init];
     controller.infoId = infoLite.infoId;
+    controller.infoTitle = infoLite.title;
     [self.navigationController pushViewController:controller animated:YES];
 }
 #pragma mark

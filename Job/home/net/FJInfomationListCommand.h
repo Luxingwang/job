@@ -8,5 +8,6 @@
 #import "info.h"
 #import "FJNetworkCommand.h"
 @interface FJInfomationListCommand : FJNetworkCommand
+@property (nonatomic,assign) NSInteger page;
 @property (nonatomic,assign) InfomationListType listType;
 @end
