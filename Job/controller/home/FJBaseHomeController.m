@@ -15,7 +15,8 @@
 #import "FJJobChanceController.h"
 #import "FJExcellentStudentController.h"
 #import "FJInfomationListController.h"
-@interface FJBaseHomeController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+#import "FJInfomationDetailController.h"
+@interface FJBaseHomeController ()<UICollectionViewDelegate,UICollectionViewDataSource,FJHomeDynamicsCellDelegate>
 @property (nonatomic,strong) UISearchBar *searchBar;
 @end
 
@@ -48,6 +49,14 @@
     
 }
 
+#pragma mark FJHomeDynamicsCellDelegate
+-(void)collectionViewCell:(FJHomeDynamicsItemCell *)cell didSelectInfomationLite:(FJInfomationLite *)infomationLite
+{
+    FJInfomationDetailController *controller = [[FJInfomationDetailController alloc] init];
+    controller.infoId = infomationLite.infoId;
+    controller.infoTitle = infomationLite.title;
+    [self.navigationController pushViewController:controller animated:YES];
+}
 #pragma mark
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -87,6 +96,7 @@
     else if (section==2)
     {
         FJHomeDynamicsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[FJHomeDynamicsCell cellId] forIndexPath:indexPath];
+        cell.delegate = self;
         cell.dynamicsList = self.dynamicsList;
         return cell;
     }

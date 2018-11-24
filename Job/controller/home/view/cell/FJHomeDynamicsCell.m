@@ -194,6 +194,16 @@ NSString *FJGetDynamitcsTypeString(NSString* type)
     return CGSizeMake(collectionView.frame.size.width,(collectionView.frame.size.height/2.0));
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    FJInfomationLite *infomationLite = self.dynamicsList[indexPath.row];
+    if ([self.delegate respondsToSelector:@selector(collectionView:didSelectItemAtIndexPath:)])
+    {
+        FJHomeDynamicsItemCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+        [self.delegate collectionViewCell:cell didSelectInfomationLite:infomationLite];
+    }
+}
+
 #pragma mark public methods
 -(void)setDynamicsList:(NSArray *)dynamicsList
 {
@@ -214,7 +224,7 @@ NSString *FJGetDynamitcsTypeString(NSString* type)
 -(NSTimer*)timer
 {
     if (!_timer) {
-        _timer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(scrollDynamicsListCellD) userInfo:nil repeats:YES];
+        _timer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(scrollDynamicsListCell) userInfo:nil repeats:YES];
         [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
     }
     return _timer;
