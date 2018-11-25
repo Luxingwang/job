@@ -8,6 +8,7 @@
 
 #import "FJUserSetupService.h"
 #import "FJUserSetupCommond.h"
+#import "FJService.h"
 
 @implementation FJUserSetupService
 + (FJUserSetupService*)instance
@@ -32,7 +33,7 @@
     FJUserSetupCommond *userWorkCommond = [[FJUserSetupCommond alloc] initWithParams:
                                                                     @{@"phone" : phone,
                                                                       @"code" : code,
-                                                                      @"userId" : @(1)
+                                                                      @"userId" : self.userId
                                                                       } successBlock:successBlock errorBlock:errorBlock];
     userWorkCommond.type = FJUserSetupCommondTypeEditPhone;
     [userWorkCommond execute];
@@ -41,6 +42,11 @@
 - (void)editPasswordWithPhone:(NSString *)phone password:(NSString *)password successBlock:(SUCCESS_BLOCK)successBlock failureBlock:(FAILURE_BLOCK)errorBlock
 {
     
+}
+
+- (NSString *)userId
+{
+    return [FJService instance].userLocalService.localUser.userId ?: @"1";
 }
 
 

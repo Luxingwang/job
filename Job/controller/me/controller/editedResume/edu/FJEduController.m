@@ -139,10 +139,12 @@
     if (indexPath.section == 1) {
         if (!indexPath.row) {
             NSString *placeholder = @"请简要描述您在该学校的学习内容";
-            [self.navigationController pushViewController:[[SDJTextViewController alloc]initWithTitle:cell.title placeholder:placeholder noTextTips:nil doneHandler:^(SDJTextViewController *textVC, NSString *text) {
+            SDJTextViewController *textViewController = [[SDJTextViewController alloc]initWithTitle:cell.title placeholder:placeholder noTextTips:nil doneHandler:^(SDJTextViewController *textVC, NSString *text) {
                 cell.detailLabel.text = text;
                 [self.userEdu setValue:text forKey:@"des"];
-            }] animated:YES];
+            }];
+            textViewController.textView.text = cell.detailLabel.text;
+            [self.navigationController pushViewController:textViewController animated:YES];
         }
         else {
             FBAttachmentUploadVC *vc = [[FBAttachmentUploadVC alloc]initWithImageArray:@[]];

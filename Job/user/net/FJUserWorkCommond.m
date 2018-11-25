@@ -9,6 +9,7 @@
 #import "FJUserWorkCommond.h"
 #import "FJIndustry.h"
 #import "NSDate+String.h"
+#import "FJService.h"
 
 @interface FJUserWorkCommond()
 @property (nonatomic, strong) FJUser *user;
@@ -74,8 +75,7 @@
         }
     }];
 
-    self.user.userId = @"1";
-    mutableParams[@"userId"] = self.user.userId;
+    mutableParams[@"userId"] = self.userId;
     [self sendRequestWithUrl:URLForge(@"/user/edit") method:POST parameter:mutableParams];
 }
 
@@ -118,8 +118,7 @@
     NSMutableDictionary *mutableParams = self.user.userWork.mj_keyValues;
     mutableParams[@"beginDate"] = self.user.userEdu.beginDateString;
     mutableParams[@"endDate"] = self.user.userEdu.endDateString;
-    self.user.userId = @"1";
-    mutableParams[@"userId"] = self.user.userId;
+    mutableParams[@"userId"] = self.userId;
     if (self.user.userWork.workId.length) {
         mutableParams[@"id"] = self.user.userWork.workId;
     }
@@ -139,8 +138,7 @@
     [mutableParams removeObjectForKey:@"des"];
     mutableParams[@"beginDate"] = self.user.userEdu.beginDateString;
     mutableParams[@"endDate"] = self.user.userEdu.endDateString;
-    self.user.userId = @"1";
-    mutableParams[@"userId"] = self.user.userId;
+    mutableParams[@"userId"] = self.userId;
     if (self.user.userEdu.eduId.length) {
         mutableParams[@"id"] = self.user.userEdu.eduId;
     }
@@ -158,8 +156,7 @@
     NSMutableDictionary *mutableParams = self.user.userProject.mj_keyValues;
     mutableParams[@"beginDate"] = self.user.userProject.beginDateString;
     mutableParams[@"endDate"] = self.user.userProject.endDateString;
-    self.user.userId = @"1";
-    mutableParams[@"userId"] = self.user.userId;
+    mutableParams[@"userId"] = self.userId;
     if (self.user.userProject.projectId.length) {
         mutableParams[@"id"] = self.user.userProject.projectId;
     }
@@ -183,6 +180,11 @@
         _funcArray = @[@"getDetail", @"editedUserInfo", @"getIndustry", @"getDataDictionary" ,@"handleEdu", @"handleEdu", @"handleWork", @"handleWork", @"handleProject", @"handleProject"];
     }
     return _funcArray;
+}
+
+- (NSString *)userId
+{
+    return [FJService instance].userLocalService.localUser.userId ?: @"1";
 }
 
 @end

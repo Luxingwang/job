@@ -13,7 +13,9 @@
 
 + (NSDictionary *)mj_replacedKeyFromPropertyName
 {
-    return @{@"eduId" : @"id"};
+    return @{@"eduId" : @"id",
+             @"des" : @"description"
+             };
 }
 
 - (id)mj_newValueFromOldValue:(id)oldValue property:(MJProperty *)property
@@ -42,7 +44,9 @@
 
 + (NSDictionary *)mj_replacedKeyFromPropertyName
 {
-    return @{@"workId" : @"id"};
+    return @{@"workId" : @"id",
+             @"des" : @"description"
+             };
 }
 
 - (id)mj_newValueFromOldValue:(id)oldValue property:(MJProperty *)property
@@ -71,7 +75,9 @@
 
 + (NSDictionary *)mj_replacedKeyFromPropertyName
 {
-    return @{@"projectId" : @"id"};
+    return @{@"projectId" : @"id",
+             @"des" : @"description"
+             };
 }
 
 - (id)mj_newValueFromOldValue:(id)oldValue property:(MJProperty *)property

@@ -49,10 +49,11 @@
                 make.height.mas_equalTo(40);
                 make.top.offset(85);
             }];
-            [button bk_addEventHandler:^(id sender) {
+            [button bk_addEventHandler:^(UIButton *sender) {
                 if (!self.phone.length) {
                     return;
                 }
+                sender.enabled = NO;
                 [self getCode];
                 [self startTiming];
             } forControlEvents:UIControlEventTouchUpInside];
@@ -63,7 +64,7 @@
             textField.tag = idx;
             textField.placeholder = obj;
             [self.view addSubview:textField];
-            [textField addSeparatorWithType:SeparatorTypeBottomFill heightOrWidth:2];
+            [textField addSeparatorWithType:SeparatorTypeBottomFill heightOrWidth:1];
             [textField mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.offset(30);
                 make.right.offset(-30);
@@ -84,9 +85,10 @@
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:@"确定" forState:UIControlStateNormal];
+    button.layer.cornerRadius = 6;
     button.backgroundColor = [UIColor at_colorWithHex:0x2fa7e0];
     [self.view addSubview:button];
-    [button bk_addEventHandler:^(id sender) {
+    [button bk_addEventHandler:^(UIButton *sender) {
         [self editPhone];
     } forControlEvents:UIControlEventTouchUpInside];
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -113,6 +115,9 @@
 
 - (void)editPhone
 {
+    if (!self.code.length) {
+        return;
+    }
     [[FJUserSetupService instance] editPhoneWithPhone:self.phone code:self.code successBlock:^(id data) {
         [self.navigationController popViewControllerAnimated:YES];
     } failureBlock:^(NSString *msg) {

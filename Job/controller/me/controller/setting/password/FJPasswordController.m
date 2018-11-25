@@ -35,7 +35,7 @@
 //        [textField setBk_didEndEditingBlock:^(UITextField *textField) {
 //
 //        }];
-        [textField addSeparatorWithType:SeparatorTypeBottomFill heightOrWidth:2];
+        [textField addSeparatorWithType:SeparatorTypeBottomFill heightOrWidth:1];
         textField.keyboardType = UIKeyboardTypeASCIICapable;
         [textField addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventEditingChanged];
     }];

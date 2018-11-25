@@ -9,7 +9,12 @@
 #import "FJSettingController.h"
 #import "FJMessageSetupController.h"
 #import "TitleArrowCell.h"
+#import "FJService.h"
 #import "FJUser.h"
+#import "FJAppDelegate.h"
+#import "FJAppLaunch.h"
+#import "UIControl+BlocksKit.h"
+#import "UIAlertView+BlocksKit.h"
 
 @interface FJSettingController ()
 @property (nonatomic, strong) FJUser *user;
@@ -48,6 +53,27 @@
     loginOutButton.backgroundColor = [UIColor whiteColor];
     self.tableView.tableFooterView = loginOutButton;
     loginOutButton.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 50);
+    [loginOutButton bk_addEventHandler:^(id sender) {
+        UIAlertView *alertView = [UIAlertView bk_showAlertViewWithTitle:@"退出登录" message:@"确定退出登录？" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+            if (buttonIndex) {
+                [self loginOut];
+            }
+        }];
+        [alertView show];
+    } forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)loginOut
+{
+    FJAppDelegate *appDelegate = (FJAppDelegate *)[[UIApplication sharedApplication] delegate];
+    FJAppLaunch *appLaunch = [appDelegate valueForKey:@"appLaunch"];
+    [[FJService instance].userLocalService.localUser setValue:nil forKey:@"userId"];
+    SEL sel = NSSelectorFromString(@"startLoginUI");
+    if ([appLaunch respondsToSelector:sel]) {
+        SuppressPerformSelectorLeakWarning (
+        [appLaunch performSelector:sel];
+        );
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

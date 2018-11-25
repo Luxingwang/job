@@ -120,9 +120,9 @@
     [self.profileImgv sd_setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"me_icon_avater"]];
     self.userNameLabel.text = user.realName;
     
-    self.deliveredLabel.text = @"10 \n已投递";
-    self.exchangedLabel.text = @"10 \n已交流";
-    self.terviewedLabel.text = @"10 \n面试";
+    self.deliveredLabel.text = @"0 \n已投递";
+    self.exchangedLabel.text = @"0 \n已交流";
+    self.terviewedLabel.text = @"0 \n面试";
 
 }
 

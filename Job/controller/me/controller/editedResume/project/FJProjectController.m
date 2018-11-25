@@ -97,10 +97,12 @@
         }
         else {
             NSString *placeholder = @"请简要描述您在该项目中的工作内容";
-            [self.navigationController pushViewController:[[SDJTextViewController alloc]initWithTitle:cell.title placeholder:placeholder noTextTips:nil doneHandler:^(SDJTextViewController *textVC, NSString *text) {
+            SDJTextViewController *textViewController = [[SDJTextViewController alloc]initWithTitle:cell.title placeholder:placeholder noTextTips:nil doneHandler:^(SDJTextViewController *textVC, NSString *text) {
                 cell.detailLabel.text = text;
                 [self.userProject setValue:text forKey:@"projectDesc"];
-            }] animated:YES];
+            }];
+            textViewController.textView.text = cell.detailLabel.text;
+            [self.navigationController pushViewController:textViewController animated:YES];
         }
     }
 }
