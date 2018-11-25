@@ -48,12 +48,12 @@
     [command execute];
 }
 
--(void)fetchExcellentStudentListAtSize:(NSInteger)size successBlock:(SUCCESS_BLOCK)successBlock failureBlock:(FAILURE_BLOCK)errorBlock
+-(void)fetchExcellentStudentListAtPage:(NSInteger)page successBlock:(PAGE_SUCCESS_BLOCK)successBlock failureBlock:(FAILURE_BLOCK)errorBlock
 {
     FJExcellentStudentCompanyJobCommand *command = [[FJExcellentStudentCompanyJobCommand alloc] init];
-    command.size = size;
+    command.page = page;
     command.errorBlock = errorBlock;
-    command.successBlock = successBlock;
+    command.pageSuccessBlock  = successBlock;
     [command execute];
 }
 

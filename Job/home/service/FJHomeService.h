@@ -26,7 +26,7 @@
 -(void)fetchInfomationListAtpage:(NSInteger)page listType:(InfomationListType)type successBlock:(PAGE_SUCCESS_BLOCK)successBlock failureBlock:(FAILURE_BLOCK)errorBlock;
 /**
  获取优秀生直通车
- @param size 页码
+ @param page 页码
  */
--(void)fetchExcellentStudentListAtSize:(NSInteger)size successBlock:(SUCCESS_BLOCK)successBlock failureBlock:(FAILURE_BLOCK)errorBlock;
+-(void)fetchExcellentStudentListAtPage:(NSInteger)page successBlock:(PAGE_SUCCESS_BLOCK)successBlock failureBlock:(FAILURE_BLOCK)errorBlock;
 @end

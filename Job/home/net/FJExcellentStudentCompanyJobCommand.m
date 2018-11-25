@@ -17,8 +17,8 @@
 -(void)execute
 {
     NSDictionary *param = [NSMutableDictionary dictionary];
-    if (self.size) {
-        [param setValue:@(self.size) forKey:@"size"];
+    if (self.page) {
+        [param setValue:@(self.page) forKey:@"pageNo"];
     }
     [self sendRequestWithUrl:self.networkUrl method:POST parameter:param];
 }
@@ -26,6 +26,6 @@
 -(void)successHandle:(id)data
 {
     NSMutableArray *storyList = [FJExcellentStudentCompanyJob arrayFrom:data];
-    self.successBlock(storyList);
+    self.pageSuccessBlock(storyList,storyList.count?NO:YES);
 }
 @end

@@ -42,7 +42,6 @@
         make.width.height.mas_equalTo(self.mas_width).multipliedBy(68/162.0);
         
     }];
-    self.coverImgv.backgroundColor = [UIColor redColor];
     
     [self.postCountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.mas_equalTo(0);
@@ -89,6 +88,8 @@
 -(UIImageView*)coverImgv{
     if (!_coverImgv) {
         _coverImgv = [[UIImageView alloc] init];
+        _coverImgv.layer.masksToBounds = YES;
+        _coverImgv.contentMode = UIViewContentModeScaleAspectFit;
     }
     return _coverImgv;
 }
@@ -111,8 +112,9 @@
 -(UILabel*)companyNameLabel{
     if (!_companyNameLabel) {
         _companyNameLabel = [[UILabel alloc] init];
-        _companyNameLabel.font = [UIFont systemFontOfSize:16];
+        _companyNameLabel.font = [UIFont systemFontOfSize:15];
         _companyNameLabel.textAlignment = NSTextAlignmentCenter;
+        _companyNameLabel.adjustsFontSizeToFitWidth = YES;
         _companyNameLabel.textColor = [UIColor at_colorWithHex:0x3E3A39];
     }
     return _companyNameLabel;

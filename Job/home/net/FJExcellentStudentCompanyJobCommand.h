@@ -9,5 +9,5 @@
 #import "FJNetworkCommand.h"
 
 @interface FJExcellentStudentCompanyJobCommand : FJNetworkCommand
-@property (nonatomic,assign) NSInteger size;
+@property (nonatomic,assign) NSInteger page;
 @end
