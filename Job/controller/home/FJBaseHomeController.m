@@ -46,6 +46,12 @@
 
 -(void)setUpRightItem
 {
+    UIBarButtonItem *sendEmailItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"img_home_send_email"] style:UIBarButtonItemStylePlain target:self action:@selector(sendEmailItemClicked:)];
+    self.navigationItem.rightBarButtonItem = sendEmailItem;
+}
+
+-(void)sendEmailItemClicked:(UIBarButtonItem*)item
+{
     
 }
 

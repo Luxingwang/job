@@ -53,6 +53,8 @@
 		2A578C7B215E166D0041F225 /* FJUserLocalUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A578C7A215E166D0041F225 /* FJUserLocalUserService.m */; };
 		2A578C82215E19A10041F225 /* FJNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A578C81215E19A10041F225 /* FJNetworkService.m */; };
 		2A94CDD7216F411200EBC0D0 /* FJUserLoginCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A94CDD6216F411200EBC0D0 /* FJUserLoginCommand.m */; };
+		2AB817B221AAE41A00607751 /* img_home_send_email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AB817B021AAE41900607751 /* img_home_send_email@2x.png */; };
+		2AB817B321AAE41A00607751 /* img_home_send_email@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AB817B121AAE41900607751 /* img_home_send_email@3x.png */; };
 		2ABB5692216CF6EF00931792 /* FJInfomationListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB5691216CF6EF00931792 /* FJInfomationListCell.m */; };
 		2ABB5695216CF77C00931792 /* FJInfomationLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB5694216CF77C00931792 /* FJInfomationLite.m */; };
 		2ABB5699216CF86200931792 /* FJInfomationListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB5698216CF86200931792 /* FJInfomationListController.m */; };
@@ -275,6 +277,8 @@
 		2A578C81215E19A10041F225 /* FJNetworkService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJNetworkService.m; sourceTree = "<group>"; };
 		2A94CDD5216F411200EBC0D0 /* FJUserLoginCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJUserLoginCommand.h; sourceTree = "<group>"; };
 		2A94CDD6216F411200EBC0D0 /* FJUserLoginCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJUserLoginCommand.m; sourceTree = "<group>"; };
+		2AB817B021AAE41900607751 /* img_home_send_email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_home_send_email@2x.png"; sourceTree = "<group>"; };
+		2AB817B121AAE41900607751 /* img_home_send_email@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_home_send_email@3x.png"; sourceTree = "<group>"; };
 		2ABB5690216CF6EF00931792 /* FJInfomationListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJInfomationListCell.h; sourceTree = "<group>"; };
 		2ABB5691216CF6EF00931792 /* FJInfomationListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJInfomationListCell.m; sourceTree = "<group>"; };
 		2ABB5693216CF77C00931792 /* FJInfomationLite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJInfomationLite.h; sourceTree = "<group>"; };
@@ -660,6 +664,8 @@
 		2A495D402141746100E6E24D /* img */ = {
 			isa = PBXGroup;
 			children = (
+				2AB817B021AAE41900607751 /* img_home_send_email@2x.png */,
+				2AB817B121AAE41900607751 /* img_home_send_email@3x.png */,
 				2AF380E22168F7E60080C048 /* img_home_item_student@2x.png */,
 				2AF380E32168F7E70080C048 /* img_home_item_student@3x.png */,
 				2AF380DF2168F78D0080C048 /* img_home_item_enterprise@2x.png */,
@@ -1757,12 +1763,14 @@
 				2AF380E42168F7E70080C048 /* img_home_item_student@2x.png in Resources */,
 				2AF380DD2168F7450080C048 /* img_home_item_story@3x.png in Resources */,
 				2A09C862215E66C900AC53C4 /* img_login_boy_profile@2x.png in Resources */,
+				2AB817B221AAE41A00607751 /* img_home_send_email@2x.png in Resources */,
 				2A458F532164E23800F194FC /* fj.cer in Resources */,
 				2AF380E52168F7E70080C048 /* img_home_item_student@3x.png in Resources */,
 				2AF380962165EF670080C048 /* img_arrow@2x.png in Resources */,
 				2A495D52214179BA00E6E24D /* img_tab_home@3x.png in Resources */,
 				2A495D56214179CC00E6E24D /* img_bar-msg@3x.png in Resources */,
 				2AF3808B2165EE6C0080C048 /* img_me_collection@3x.png in Resources */,
+				2AB817B321AAE41A00607751 /* img_home_send_email@3x.png in Resources */,
 				2AF3808A2165EE6C0080C048 /* img_me_collection@2x.png in Resources */,
 				2A458F4B21639EDD00F194FC /* img_login_password_logo@3x.png in Resources */,
 				2A495D5A214179D400E6E24D /* img_tab_online@3x.png in Resources */,
