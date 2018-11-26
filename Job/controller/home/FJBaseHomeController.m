@@ -16,6 +16,7 @@
 #import "FJExcellentStudentController.h"
 #import "FJInfomationListController.h"
 #import "FJInfomationDetailController.h"
+#import "FJUserSendEmailTypeController.h"
 @interface FJBaseHomeController ()<UICollectionViewDelegate,UICollectionViewDataSource,FJHomeDynamicsCellDelegate>
 @property (nonatomic,strong) UISearchBar *searchBar;
 @end
@@ -52,7 +53,9 @@
 
 -(void)sendEmailItemClicked:(UIBarButtonItem*)item
 {
-    
+    FJUserSendEmailTypeController *controller = [[FJUserSendEmailTypeController alloc] init];
+    controller.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark FJHomeDynamicsCellDelegate
