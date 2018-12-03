@@ -47,8 +47,9 @@
 
 -(void)setUpRightItem
 {
-    UIBarButtonItem *sendEmailItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"img_home_send_email"] style:UIBarButtonItemStylePlain target:self action:@selector(sendEmailItemClicked:)];
-    self.navigationItem.rightBarButtonItem = sendEmailItem;
+    UIButton *rigthItemBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rigthItemBtn setImage:[UIImage imageNamed:@"img_home_send_email"] forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rigthItemBtn];
 }
 
 -(void)sendEmailItemClicked:(UIBarButtonItem*)item
@@ -93,7 +94,6 @@
     if (section==0)
     {
         FJHomeBannerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[FJHomeBannerCell cellId] forIndexPath:indexPath];
-        cell.backgroundColor = [UIColor greenColor];
         return cell;
     }
     else if (section==1)

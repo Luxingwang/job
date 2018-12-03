@@ -27,15 +27,16 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    if (DEBUG) {
-        NSLog(@"%@",[NSString stringWithFormat:@"msg:enter %@",NSStringFromClass([self class])]);
-    }
+#if DEBUG
+    NSLog(@"%@",[NSString stringWithFormat:@"msg:enter %@",NSStringFromClass([self class])]);
+#endif
+    
 }
 
 -(void)dealloc{
-    if (DEBUG) {
-        NSLog(@"%@",[NSString stringWithFormat:@"msg:%@ dealloc",NSStringFromClass([self class])]);
-    }
+#if DEBUG
+    NSLog(@"%@",[NSString stringWithFormat:@"msg:%@ dealloc",NSStringFromClass([self class])]);
+#endif
 }
 
 - (void)setUpSubviews{
