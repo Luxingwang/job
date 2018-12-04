@@ -11,3 +11,9 @@
 @interface FJOnlineController : FJBaseController
 
 @end
+
+@interface FJOnLineItemView:UIView
+
+-(instancetype)initWithImg:(NSString*)img name:(NSString*)name;
+
+@end

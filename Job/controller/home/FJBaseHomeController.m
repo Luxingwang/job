@@ -47,12 +47,15 @@
 
 -(void)setUpRightItem
 {
+    UIImage *img = [UIImage imageNamed:@"img_home_send_email"];
     UIButton *rigthItemBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rigthItemBtn setImage:[UIImage imageNamed:@"img_home_send_email"] forState:UIControlStateNormal];
+    rigthItemBtn.bounds = CGRectMake(0,0,img.size.width,img.size.height);
+    [rigthItemBtn setImage:img forState:UIControlStateNormal];
+    [rigthItemBtn addTarget:self action:@selector(sendEmailItemClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rigthItemBtn];
 }
 
--(void)sendEmailItemClicked:(UIBarButtonItem*)item
+-(void)sendEmailItemClicked:(UIButton*)sender
 {
     FJUserSendEmailTypeController *controller = [[FJUserSendEmailTypeController alloc] init];
     controller.hidesBottomBarWhenPushed = YES;
