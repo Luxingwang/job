@@ -13,6 +13,7 @@
 
 @interface FJUserWorkCommond()
 @property (nonatomic, strong) FJUser *user;
+@property (nonatomic, strong) UIImage *image;
 @property (nonatomic, strong) NSArray *funcArray;
 @property (nonatomic, strong) NSArray *responseArray;
 @end
@@ -112,7 +113,6 @@
     self.successBlock(data);
 }
 
-
 - (void)handleWork
 {
     NSMutableDictionary *mutableParams = self.user.userWork.mj_keyValues;
@@ -169,6 +169,19 @@
     self.successBlock(data);
 }
 
+- (void)uploadImage
+{
+    if (!self.image) {
+        return;
+    }
+    [self sendRequestWithUrl:URLForge(@"/upload/img") method:POST data:UIImageJPEGRepresentation(self.image, 0.1)];
+}
+
+- (void)uploadImageResponse:(id)data
+{
+    self.successBlock(data);
+}
+
 - (NSString *)formatUrl
 {
     return self.type % 2 == 0 ? @"add" : @"edit";
@@ -177,7 +190,7 @@
 - (NSArray *)funcArray
 {
     if (!_funcArray) {
-        _funcArray = @[@"getDetail", @"editedUserInfo", @"getIndustry", @"getDataDictionary" ,@"handleEdu", @"handleEdu", @"handleWork", @"handleWork", @"handleProject", @"handleProject"];
+        _funcArray = @[@"getDetail", @"editedUserInfo", @"getIndustry", @"getDataDictionary" ,@"handleEdu", @"handleEdu", @"handleWork", @"handleWork", @"handleProject", @"handleProject", @"uploadImage"];
     }
     return _funcArray;
 }

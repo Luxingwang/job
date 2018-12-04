@@ -18,6 +18,7 @@
 #import "NSDate+String.h"
 #import "UIImagePickerController+BlocksKit.h"
 #import "FJUser.h"
+#import "UIView+Extension.h"
 
 @interface FJMeInfoController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) FJUser *user;
@@ -80,6 +81,18 @@
     } failureBlock:^(NSString *msg) {
         
     }];
+}
+
+- (void)uploadImage:(UIImage *)image
+{
+    [self.view at_postLoading];
+    [[FJUserWorkService instance] uploadWithImage:image successBlock:^(id data) {
+        [self.view at_hideLoading];
+        [self.logoCell.iconImageView sd_setImageWithURL:[NSURL URLWithString:(NSString *)data] placeholderImage:[UIImage imageNamed:@"me_icon_avater"]];
+    } failureBlock:^(NSString *msg) {
+        
+    }];
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -224,10 +237,10 @@
         weakify(self)
         [_imagePickerController setBk_didFinishPickingMediaBlock:^(UIImagePickerController *imagePickerController,  NSDictionary *info) {
             strongify(self)
-            //获取图片
+            // 获取图片
             UIImage *image = info[UIImagePickerControllerOriginalImage];
             [self dismissViewControllerAnimated:YES completion:nil];
-            self.logoCell.iconImageView.image = image;
+            [self uploadImage:image];
         }];
         [_imagePickerController setBk_didCancelBlock:^(UIImagePickerController *picker) {
             strongify(self)

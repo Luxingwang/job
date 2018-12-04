@@ -36,10 +36,18 @@
 }
 
 -(void)sendRequestWithUrl:(NSString *)url method:(REQUEST_TYPE)requestType{
-    [self sendRequestWithUrl:url method:requestType parameter:nil];
+    [self sendRequestWithUrl:url method:requestType parameter:nil data:nil];
 }
 
 -(void)sendRequestWithUrl:(NSString *)url method:(REQUEST_TYPE)requestType parameter:(NSDictionary*)params{
+    [self sendRequestWithUrl:url method:requestType parameter:params data:nil];
+}
+
+-(void)sendRequestWithUrl:(NSString *)url method:(REQUEST_TYPE)requestType data:(NSData *)data{
+    [self sendRequestWithUrl:url method:requestType parameter:nil data:data];
+}
+
+-(void)sendRequestWithUrl:(NSString *)url method:(REQUEST_TYPE)requestType parameter:(NSDictionary*)params data:(NSData *)data{
     NSString *requestMethod = @"POST";
     if (requestType==GET) {
         requestMethod = @"GET";
@@ -50,7 +58,12 @@
     }
     NSString *encodingURLString=[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest * request=[[self networkEngine].requestSerializer multipartFormRequestWithMethod:requestMethod URLString:encodingURLString parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        
+        if (data) {
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            formatter.dateFormat = @"yyyyMMddHHmmss";
+            NSString *fileName = [NSString stringWithFormat:@"%@.png", [formatter stringFromDate:[NSDate date]]];
+            [formData appendPartWithFileData:data name:@"file" fileName:fileName mimeType:@"image/png"];
+        }
     } error:nil];
     request.timeoutInterval = 10;
     NSURLSessionDataTask *dataTask = [[self networkEngine] dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error){
@@ -62,7 +75,6 @@
     }];
     [dataTask resume];
 }
-
 -(void)handleResponse:(id)response
 {
     if ([response isKindOfClass:[NSDictionary class]]==NO)

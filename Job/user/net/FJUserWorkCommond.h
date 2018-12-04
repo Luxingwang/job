@@ -22,6 +22,7 @@ typedef NS_ENUM(NSUInteger, FJResumeCommondType){
     FJResumeCommondTypeEditWork,
     FJResumeCommondTypeAddProject,
     FJResumeCommondTypeEditProject,
+    FJResumeCommondTypeUpload,
 };
 
 @interface FJUserWorkCommond : FJNetworkCommand

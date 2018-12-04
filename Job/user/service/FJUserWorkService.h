@@ -72,6 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)userProjectHandleWithUserproject:(FJUser *)userProject successBlock:(SUCCESS_BLOCK)successBlock failureBlock:(FAILURE_BLOCK)errorBlock;
 
+- (void)uploadWithImage:(UIImage *)image successBlock:(SUCCESS_BLOCK)successBlock failureBlock:(FAILURE_BLOCK)errorBlock;
 
 @end
 

@@ -68,4 +68,12 @@
     userWorkCommond.type = userProject.userProject.projectId.integerValue ? FJResumeCommondTypeEditProject : FJResumeCommondTypeAddProject;
     [userWorkCommond execute];
 }
+
+- (void)uploadWithImage:(UIImage *)image successBlock:(SUCCESS_BLOCK)successBlock failureBlock:(FAILURE_BLOCK)errorBlock
+{
+    FJUserWorkCommond *userWorkCommond = [[FJUserWorkCommond alloc] initWithUser:nil successBlock:successBlock errorBlock:errorBlock];
+    userWorkCommond.type = FJResumeCommondTypeUpload;
+    [userWorkCommond setValue:image forKey:@"image"];
+    [userWorkCommond execute];
+}
 @end

@@ -35,4 +35,5 @@ typedef void (^FAILURE_BLOCK)(NSString* msg);
 
 -(void)sendRequestWithUrl:(NSString *)url method:(REQUEST_TYPE)requestType parameter:(NSDictionary*)params;
 
+-(void)sendRequestWithUrl:(NSString *)url method:(REQUEST_TYPE)requestType data:(NSData *)data;
 @end
