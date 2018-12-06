@@ -7,7 +7,7 @@
 //
 #import "FJJobListCommand.h"
 #import "FJJobListService.h"
-
+#import "FJJobSearchItemListCommand.h"
 @implementation FJJobListService
 +(FJJobListService*)instance{
     static FJJobListService *service = nil;
@@ -22,6 +22,14 @@
 {
     FJJobListCommand *command = [[FJJobListCommand alloc] init];
     command.params = self.params;
+    command.errorBlock = errorBlock;
+    command.successBlock = successBlock;
+    [command execute];
+}
+
+-(void)fetchSearchKeyItemListSuccessBlock:(SUCCESS_BLOCK)successBlock failureBlock:(FAILURE_BLOCK)errorBlock
+{
+    FJJobSearchItemListCommand *command = [[FJJobSearchItemListCommand alloc] init];
     command.errorBlock = errorBlock;
     command.successBlock = successBlock;
     [command execute];

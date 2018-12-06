@@ -6,6 +6,7 @@
 //  Copyright © 2018年 lxw. All rights reserved.
 //
 #import "FJAppDelegate.h"
+#import "IQKeyboardManager.h"
 @interface FJAppDelegate ()
 
 @end
@@ -16,6 +17,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [super application:application didFinishLaunchingWithOptions:launchOptions];
+    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
+    
+    
     return YES;
 }
 @end

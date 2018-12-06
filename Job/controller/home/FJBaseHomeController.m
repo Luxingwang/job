@@ -6,6 +6,7 @@
 //  Copyright © 2018年 lxw. All rights reserved.
 //
 #import <Masonry.h>
+#import "FJSearchBar.h"
 #import "FJFlowLayout.h"
 #import "FJHomeBannerCell.h"
 #import "FJHomeDynamicsCell.h"
@@ -13,21 +14,23 @@
 #import "FJHomeEntranceItemCell.h"
 #import "FJHomeRecommendJobCell.h"
 #import "FJJobChanceController.h"
+#import "FJSearchJobController.h"
+#import "FJBaseNavigationController.h"
 #import "FJExcellentStudentController.h"
 #import "FJInfomationListController.h"
 #import "FJInfomationDetailController.h"
 #import "FJUserSendEmailTypeController.h"
-@interface FJBaseHomeController ()<UICollectionViewDelegate,UICollectionViewDataSource,FJHomeDynamicsCellDelegate>
-@property (nonatomic,strong) UISearchBar *searchBar;
+@interface FJBaseHomeController ()<UICollectionViewDelegate,UICollectionViewDataSource,FJHomeDynamicsCellDelegate,UISearchBarDelegate>
+@property (nonatomic,strong) FJSearchBar *searchBar;
 @end
 
 @implementation FJBaseHomeController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpRightItem];
     [self setUpSubviews];
     [self initConstraints];
-    [self setUpRightItem];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,6 +39,7 @@
 
 #pragma mark
 -(void)setUpSubviews{
+    self.navigationItem.titleView = self.searchBar;
     [self.view addSubview:self.collectionView];
 }
 
@@ -193,7 +197,26 @@
         
     }
 }
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
+    FJBaseNavigationController *controller = [[FJBaseNavigationController alloc] initWithRootViewController:[[FJSearchJobController alloc] init]];
+    [self presentViewController:controller animated:YES completion:nil];
+    return NO;
+}
+
 #pragma mark
+-(FJSearchBar*)searchBar
+{
+    if (!_searchBar) {
+        _searchBar = [[FJSearchBar alloc] initWithFrame:CGRectMake(0,0,200,44)];
+        _searchBar.delegate = self;
+        _searchBar.placeholder = @"岗位/薪资";
+        _searchBar.backgroundImage = [[UIImage alloc] init];
+        _searchBar.textFiledInset = UIEdgeInsetsMake(5,10,5,10);
+        _searchBar.textFiledBackgroundColor = [UIColor at_colorWithHex:0xF2F2F2];
+    }
+    return _searchBar;
+}
+
 -(UICollectionView*)collectionView{
     if (!_collectionView) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
